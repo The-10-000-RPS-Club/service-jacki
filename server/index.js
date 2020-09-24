@@ -11,9 +11,11 @@ const PORT = 3001;
 app.use(bodyParser.json());
 
 app.get('/api/questions', (req, res) => {
-    res.send('ayo');
-})
+  Questions.find({}).exec()
+    .then((results) => res.send(results))
+    .catch((err) => res.send(err));
+});
 
 app.listen(PORT, () => {
-    console.log(`listening on port: ${PORT}`);
-})
+  console.log(`listening on port: ${PORT}`);
+});
