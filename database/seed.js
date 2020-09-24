@@ -1,56 +1,44 @@
+/* eslint-disable no-console */
+const faker = require('faker');
 const db = require('./index.js');
 const Question = require('./Question.js');
 
-const sampleData = [
-    {
-question_id: 058, 
-product_id: 017,
-user: 'BobbyB',
-question_body: 'Does this product fit both men and women?',
-answer: [
-    {
-    id: 023,
-    body: 'Yes it does.',
-    user: 'REI Helper Sally',
-    helpful: {
-        yes: 0,
-        no: 1,
-    },
-    },
-],
-}, 
-{
-    question_id: 009,
-    product_id: 043,
-    user: 'Rachel098',
-    question_body: 'How durable is this?',
-    answer: [
-        {
-        id: 023,
-        body: 'It can stand up to all your favortie activities.',
-        user: 'REI Helper Jim',
-        helpful: {
-            yes: 2,
-            no: 0,
-        },
-        }, 
-        {
-            id: 079,
-            body: 'It tore after one week.',
-            user: 'CaliBro43',
-            helpful: {
-                yes: 1,
-                no: 3,
-            },
-            },
-    ],
-    },
-]
+const generateRandomAnswer = () => ({
+  id: faker.random.number(),
+  body: faker.lorem.sentence(),
+  helpful: {
+    yes: Math.floor(Math.random() * 5),
+    no: Math.floor(Math.random() * 5),
+  },
+});
 
-const insertSampleData = function() {
-    Question.create(sampleData)
-      .then(() => db.close())
-      .catch(err => console.log(err));
-  };
-  
-  insertSampleData();
+const generateFakeQuestions = () => {
+  const questions = [];
+
+  for (let id = 1; id <= 10; id += 1) {
+    const question = {
+      id,
+      product_id: faker.random.number(),
+      user: faker.internet.userName(),
+      question_body: faker.lorem.sentence(),
+      answer: [],
+    };
+    const answers = Math.floor(Math.random() * 5);
+    for (let j = 0; j < answers; j++) {
+      question.answer.push(generateRandomAnswer());
+    }
+    console.log(answers, question);
+    questions.push(question);
+  }
+  return questions;
+};
+
+const basicQuestionData = generateFakeQuestions();
+
+const insertSampleData = () => {
+  Question.create(basicQuestionData)
+    .then(() => db.close())
+    .catch((err) => console.log(err));
+};
+
+insertSampleData();
