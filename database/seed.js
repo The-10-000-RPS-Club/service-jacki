@@ -3,7 +3,7 @@ const Question = require('./Question.js');
 
 const sampleData = [
     {
-question_id: 058,
+question_id: 058, 
 product_id: 017,
 user: 'BobbyB',
 question_body: 'Does this product fit both men and women?',
