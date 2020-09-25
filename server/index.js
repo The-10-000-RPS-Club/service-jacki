@@ -34,6 +34,7 @@ app.post('/api/questions/:product_id', (req, res) => {
     .then((data) => res.status(201).send(data))
     .catch((err) => res.send(err));
 });
+
 /********* IF TIME ALLOWS **********/
 
 // app.patch('/api/questions/:question_id/:answer_id', (req, res) => {
