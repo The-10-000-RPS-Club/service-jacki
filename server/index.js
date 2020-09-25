@@ -35,12 +35,22 @@ app.use(bodyParser.json());
 //     .catch((err) => res.send(err));
 // });
 
-app.get('/api/questions/:question_id', (req, res) => {
+app.get('/api/questions/:question_id/:answer_id', (req, res) => {
   const quesId = req.params.question_id;
+  const ansId = req.params.answer_id;
   Questions.find({ question_id: quesId }).exec()
   // Questions.findOneAndUpdate({ question_id: quesId, answer_id: ansId }, { $inc: { answers.no: 1 }}).exec()
-    .then((data) => res.send(data[0].answers))
+    .then((data) => {
+      for (let i = 0; i < data[0].answers.length; i += 1) {
+        if (data[0].answers[i].answer_id === JSON.parse(ansId)) {
+          console.log('in it');
+          data[0].answers[i].helpful.no += 1;
+        }
+      }
+      res.send(data);
+    })
     .catch((err) => res.send(err));
+    
 });
 
 app.listen(PORT, () => {
