@@ -21,11 +21,11 @@ const generateFakeQuestions = () => {
       product_id: faker.random.number({ min: 1, max: 100 }),
       user: faker.internet.userName(),
       question_body: faker.lorem.sentence(),
-      answer: [],
+      answers: [],
     };
     const answers = Math.floor(Math.random() * 5) + 1;
     for (let j = 0; j < answers; j += 1) {
-      question.answer.push(generateRandomAnswer());
+      question.answers.push(generateRandomAnswer());
     }
     questions.push(question);
   }

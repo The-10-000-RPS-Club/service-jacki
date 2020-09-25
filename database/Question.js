@@ -8,7 +8,7 @@ const questionSchema = new mongoose.Schema({
   product_id: Number,
   user: String,
   question_body: String,
-  answer: [
+  answers: [
     {
       answer_id: Number,
       body: String,
