@@ -17,8 +17,8 @@ const generateFakeQuestions = () => {
 
   for (let id = 1; id <= 800; id += 1) {
     const question = {
-      id,
-      product_id: faker.random.number(),
+      question_id: faker.random({ min: 1, max: 800 }),
+      product_id: faker.random.number({ min: 1, max: 100 }),
       user: faker.internet.userName(),
       question_body: faker.lorem.sentence(),
       answer: [],

@@ -28,6 +28,8 @@ app.post('/api/questions/:product_id', (req, res) => {
     .catch((err) => res.send(err));
 });
 
+app.patch('api/questions/:question_id')
+
 app.listen(PORT, () => {
   console.log(`listening on port: ${PORT}`);
 });
