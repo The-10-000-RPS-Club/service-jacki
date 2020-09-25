@@ -7,12 +7,10 @@ const questionSchema = new mongoose.Schema({
   question_id: Number,
   product_id: Number,
   user: String,
-  date: Number,
   question_body: String,
   answer: [
     {
-      id: Number,
-      date: Number,
+      answer_id: Number,
       body: String,
       user: String,
       helpful: {

@@ -28,7 +28,12 @@ app.post('/api/questions/:product_id', (req, res) => {
     .catch((err) => res.send(err));
 });
 
-app.patch('api/questions/:question_id')
+// app.patch('api/questions/:question_id/answers/helpful/no', (req, res) => {
+//   const { id } = req.params;
+//   Questions.findOneAndUpdate({ product_id: id }, { $inc: { answers.&.no: 1 }}).exec()
+//     .then((data) => res.status(200).send(data))
+//     .catch((err) => res.send(err));
+// });
 
 app.listen(PORT, () => {
   console.log(`listening on port: ${PORT}`);
