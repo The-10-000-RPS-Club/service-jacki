@@ -17,6 +17,13 @@ app.get('/api/questions', (req, res) => {
     .catch((err) => res.send(err));
 });
 
+app.get('/api/questions/:question_id', (req, res) => {
+  const id = req.params.question_id;
+  Questions.find({ question_id: id }).exec()
+    .then((result) => res.send(result))
+    .catch((err) => res.send(err));
+});
+
 app.post('/api/questions/:product_id', (req, res) => {
   const newQuestion = new Questions({
     product_id: req.params.id,
