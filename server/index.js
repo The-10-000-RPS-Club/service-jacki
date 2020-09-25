@@ -17,6 +17,17 @@ app.get('/api/questions', (req, res) => {
     .catch((err) => res.send(err));
 });
 
+app.post('/api/questions/:product_id', (req, res) => {
+  const newQuestion = new Questions({
+    product_id: req.params.id,
+    user: req.body.user,
+    question_body: req.body.question_body,
+  });
+  newQuestion.save()
+    .then((data) => res.status(201).send(data))
+    .catch((err) => res.send(err));
+});
+
 app.listen(PORT, () => {
   console.log(`listening on port: ${PORT}`);
 });
