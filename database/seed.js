@@ -15,7 +15,7 @@ const generateRandomAnswer = () => ({
 const generateFakeQuestions = () => {
   const questions = [];
 
-  for (let id = 1; id <= 10; id += 1) {
+  for (let id = 1; id <= 800; id += 1) {
     const question = {
       id,
       product_id: faker.random.number(),
@@ -23,11 +23,10 @@ const generateFakeQuestions = () => {
       question_body: faker.lorem.sentence(),
       answer: [],
     };
-    const answers = Math.floor(Math.random() * 5);
-    for (let j = 0; j < answers; j++) {
+    const answers = Math.floor(Math.random() * 5) + 1;
+    for (let j = 0; j < answers; j += 1) {
       question.answer.push(generateRandomAnswer());
     }
-    console.log(answers, question);
     questions.push(question);
   }
   return questions;

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const db = require('./index.js');
+
 mongoose.Promise = global.Promise;
 
 const questionSchema = new mongoose.Schema({
@@ -19,7 +20,7 @@ const questionSchema = new mongoose.Schema({
         no: Number,
       },
     },
-],
+  ],
 });
 
 const Question = mongoose.model('Question', questionSchema);
