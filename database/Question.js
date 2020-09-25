@@ -7,12 +7,10 @@ const questionSchema = new mongoose.Schema({
   question_id: Number,
   product_id: Number,
   user: String,
-  date: Number,
   question_body: String,
-  answer: [
+  answers: [
     {
-      id: Number,
-      date: Number,
+      answer_id: Number,
       body: String,
       user: String,
       helpful: {
@@ -21,6 +19,9 @@ const questionSchema = new mongoose.Schema({
       },
     },
   ],
+},
+{
+  timestamps: true,
 });
 
 const Question = mongoose.model('Question', questionSchema);
