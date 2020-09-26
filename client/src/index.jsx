@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 
 import axios from 'axios';
 
-import Question from 'Question.jsx';
+import Question from './components/Question.jsx';
 
-import QuestionLisst from 'QuestionList.jsx';
+import QuestionList from './components/QuestionList.jsx';
 
 class App extends React.Component {
 constructor(props) {

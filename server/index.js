@@ -3,6 +3,8 @@ const express = require('express');
 
 const bodyParser = require('body-parser');
 
+const path = require('path');
+
 const Questions = require('../database/Question.js');
 
 const app = express();
@@ -10,6 +12,8 @@ const app = express();
 const PORT = 3001;
 
 app.use(bodyParser.json());
+
+app.use(express.static(__dirname + '/../client/dist'));
 
 app.get('/api/questions', (req, res) => {
   Questions.find({}).exec()
