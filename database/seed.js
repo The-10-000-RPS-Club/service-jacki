@@ -5,7 +5,9 @@ const Question = require('./Question.js');
 
 const generateRandomAnswer = () => ({
   answer_id: faker.random.number(),
+  created_at: faker.date.past(3),
   body: faker.lorem.sentence(),
+  user: faker.internet.userName(),
   helpful: {
     yes: Math.floor(Math.random() * 5),
     no: Math.floor(Math.random() * 5),
@@ -19,6 +21,7 @@ const generateFakeQuestions = () => {
     const question = {
       question_id: id,
       product_id: faker.random.number({ min: 1, max: 100 }),
+      created_at: faker.date.past(1),
       user: faker.internet.userName(),
       question_body: faker.lorem.sentence(),
       answers: [],
