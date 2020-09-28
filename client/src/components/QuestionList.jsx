@@ -3,7 +3,7 @@ import Question from './Question.jsx';
 
 const QuestionList = (props) => (
   <div>
-	<h1>There are {props.questions.length} questions for this product.</h1>
+	<p>There are {props.questions.length} questions for this product.</p>
   {props.questions.map((question, i) => (
     <Question question={question} key={i} />
     ))}
