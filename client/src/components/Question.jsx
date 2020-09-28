@@ -11,16 +11,29 @@ const Wrapper = styled.section`
 	border-top: 1px solid grey;
 	padding: 10px;
 	position: relative;
+	font-family: Stuart, Georgia, serif;
+	padding-bottom: 50 px;
+	margin-bottom: 50px;
 `;
 
 const HelpfulButton = styled.button`
 	background-color: white;
 	border: 1px solid grey;
+	border-radius: 2px;
 `;
 
 const AnswerNumber = styled.section`
 	float: right;
 	text-align: center;
+	border-radius: 2px;
+`;
+
+const AnswerButton = styled.button`
+	border: 1px solid grey;
+	padding: 6px;
+	background-color: white;
+	margin: 10px;
+	border-radius: 2px;
 `;
 
 const Question = (props) => (
@@ -29,8 +42,7 @@ const Question = (props) => (
 		<AnswerNumber><p>{props.question.answers.length}</p><p>{'\n'}answers</p></AnswerNumber>
 		<div>{props.question.user} <span>&#183;</span> {moment(props.question.created_at).startOf('hour').fromNow()}</div>
 		<h3>{props.question.question_body}</h3>
-		
-		
+		<AnswerButton>Answer the question</AnswerButton>
 	<p>{props.question.answers[0].user} <span>&#183;</span> {moment(props.question.answers[0].created_at).startOf('hour').fromNow()}</p>
 	<p>{props.question.answers[0].body}</p>
 	<p>Helpful? <HelpfulButton>yes: {props.question.answers[0].helpful.yes}</HelpfulButton> <HelpfulButton>no: {props.question.answers[0].helpful.no}</HelpfulButton> <HelpfulButton>Report as inappropriate</HelpfulButton> </p>
