@@ -11,7 +11,7 @@ position: relative;
 
 const QuestionList = (props) => (
   <div>
-	<Wrapper><p>{props.questions.length} questions</p></Wrapper>
+	<Wrapper><p>{props.questions.length} Questions</p></Wrapper>
   {props.questions.map((question, i) => (
     <Question question={question} key={i} />
     ))}

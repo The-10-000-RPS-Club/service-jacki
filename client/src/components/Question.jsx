@@ -27,16 +27,13 @@ const Question = (props) => (
 	<Wrapper>
 	<div>
 		<AnswerNumber><p>{props.question.answers.length}</p><p>{'\n'}answers</p></AnswerNumber>
-		<div>{props.question.user} * {moment(props.question.created_at).startOf('hour').fromNow()}</div>
+		<div>{props.question.user} <span>&#183;</span> {moment(props.question.created_at).startOf('hour').fromNow()}</div>
 		<h3>{props.question.question_body}</h3>
 		
-		<span>{props.question.answers.map((answer, i) => (
-			<div key={i}>
-	<p>{answer.user} {moment(answer.created_at).startOf('hour').fromNow()}</p>
-	<p>{answer.body}</p>
-	<p>Helpful? <HelpfulButton>yes: {answer.helpful.yes}</HelpfulButton> <HelpfulButton>no: {answer.helpful.no}</HelpfulButton></p>
-	</div>
-		))}</span>
+		
+	<p>{props.question.answers[0].user} <span>&#183;</span> {moment(props.question.answers[0].created_at).startOf('hour').fromNow()}</p>
+	<p>{props.question.answers[0].body}</p>
+	<p>Helpful? <HelpfulButton>yes: {props.question.answers[0].helpful.yes}</HelpfulButton> <HelpfulButton>no: {props.question.answers[0].helpful.no}</HelpfulButton> <HelpfulButton>Report as inappropriate</HelpfulButton> </p>
 	</div>
 	</Wrapper>
 );
