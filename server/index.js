@@ -15,20 +15,20 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/../client/dist'));
 
-app.get('/api/questions', (req, res) => {
-  Questions.find({}).exec()
+app.get('/api/products/questions', (req, res) => {
+  Questions.find({}).limit(5).exec()
     .then((results) => res.send(results))
     .catch((err) => res.send(err));
 });
 
-app.get('/api/questions/:question_id', (req, res) => {
+app.get('/api/products/questions/:question_id', (req, res) => {
   const id = req.params.question_id;
   Questions.find({ question_id: id }).exec()
     .then((result) => res.send(result))
     .catch((err) => res.send(err));
 });
 
-app.post('/api/questions/:product_id', (req, res) => {
+app.post('/api/products/questions/:product_id', (req, res) => {
   const newQuestion = new Questions({
     product_id: req.params.id,
     user: req.body.user,

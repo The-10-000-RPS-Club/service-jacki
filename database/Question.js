@@ -6,11 +6,13 @@ mongoose.Promise = global.Promise;
 const questionSchema = new mongoose.Schema({
   question_id: Number,
   product_id: Number,
+  created_at: Date,
   user: String,
   question_body: String,
   answers: [
     {
       answer_id: Number,
+      created_at: Date,
       body: String,
       user: String,
       helpful: {
@@ -19,9 +21,6 @@ const questionSchema = new mongoose.Schema({
       },
     },
   ],
-},
-{
-  timestamps: true,
 });
 
 const Question = mongoose.model('Question', questionSchema);

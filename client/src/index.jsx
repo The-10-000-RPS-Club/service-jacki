@@ -21,13 +21,13 @@ class App extends React.Component {
 
   getQuestions() {
     axios.get('/api/products/questions')
-      .then((data) => this.setState({ questions: data }))
+      .then((data) => this.setState({ questions: data.data }))
       .catch((err) => console.log(err));
-}
+  }
 
   render() {
     return (
-      <div><QuestionList /></div>
+      <div><QuestionList questions={this.state.questions}/></div>
     );
   }
 }
