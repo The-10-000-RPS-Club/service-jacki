@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 
 import axios from 'axios';
 
+import styled from 'styled-components';
+
 import QuestionList from './components/QuestionList.jsx';
 
 class App extends React.Component {
@@ -25,10 +27,16 @@ class App extends React.Component {
       .catch((err) => console.log(err));
   }
 
+  
   render() {
+    const Wrapper = styled.section`
+      margin: auto;
+      width: 50%;
+      position: relative;
+  `;
     return (
         <div>
-            <h3>Questions & Answers</h3>
+            <Wrapper><h3>Questions & Answers</h3></Wrapper>
       <div><QuestionList questions={this.state.questions}/></div>
       </div>
     );

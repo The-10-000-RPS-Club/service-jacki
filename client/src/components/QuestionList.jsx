@@ -1,9 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
 import Question from './Question.jsx';
+
+
+const Wrapper = styled.section`
+margin: auto;
+width: 50%;
+position: relative;
+`;
 
 const QuestionList = (props) => (
   <div>
-	<p>There are {props.questions.length} questions for this product.</p>
+	<Wrapper><p>{props.questions.length} questions</p></Wrapper>
   {props.questions.map((question, i) => (
     <Question question={question} key={i} />
     ))}
