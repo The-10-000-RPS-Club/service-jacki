@@ -2,9 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { App } from '../client/src/components/index.js';
 
-it('renders without crashing', () => {
-	const div = document.getElementById('div');
-	ReactDOM.render(<App />, div);
-	console.log('true');
-	ReactDOM.unmountComponentAtNode(div);
-});
+describe('A suite', () => {
+  it('should render without throwing an error', () => {
+    expect(shallow(<App />).contains(<div className="app">Hello</div>)).toBe(true);
+  });

@@ -27,7 +27,10 @@ class App extends React.Component {
 
   render() {
     return (
+        <div>
+            <div className='app'>Hello</div>
       <div><QuestionList questions={this.state.questions}/></div>
+      </div>
     );
   }
 }
