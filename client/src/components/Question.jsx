@@ -71,7 +71,7 @@ const Question = (props) => (
 		<AnswerButton>Answer the question</AnswerButton>
 	<div><User>{props.question.answers[0].user} &#183; <QuestionTime>{moment(props.question.answers[0].created_at).startOf('hour').fromNow()}</QuestionTime></User></div>
 	<AnswerBody><p>{props.question.answers[0].body}</p></AnswerBody>
-	<p>Helpful? <HelpfulButton>yes: {props.question.answers[0].helpful.yes}</HelpfulButton> <HelpfulButton>no: {props.question.answers[0].helpful.no}</HelpfulButton> <HelpfulButton>Report as inappropriate</HelpfulButton> </p>
+	<p>Helpful? <HelpfulButton className='yes' onClick={() => console.log(event.target.className)}>yes: {props.question.answers[0].helpful.yes}</HelpfulButton> <HelpfulButton className='no'>no: {props.question.answers[0].helpful.no}</HelpfulButton> <HelpfulButton>Report as inappropriate</HelpfulButton> </p>
 	</div>
 	</Wrapper>
 );
