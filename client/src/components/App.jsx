@@ -51,6 +51,7 @@ class App extends React.Component {
 		this.state = {
 			questions: [],
 			totalQuestions: 0,
+			sort: null
 		};
 		this.getQuestions = this.getQuestions.bind(this);
 		// this.nextPage = this.nextPage.bind(this);

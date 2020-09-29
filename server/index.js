@@ -43,16 +43,20 @@ app.post('/api/products/questions/:product_id', (req, res) => {
 
 /********* IF TIME ALLOWS **********/
 
-app.patch('/api/products/questions/:question_id/:answer_id', (req, res) => {
+app.patch('/api/products/questions/:question_id/:answer_id/:option', (req, res) => {
   const quesId = req.params.question_id;
   const id = req.params.answer_id;
   const filter = { question_id: quesId };
+  const { option } = req.params;
   Questions.find(filter)
     .then((question) => {
       const subDoc = question[0].answers.id(id);
-      const yesNum = subDoc.helpful.yes;
-      subDoc.set({ helpful: { yes: yesNum + 1 } });
-      console.log(yesNum);
+      const count = subDoc.helpful[option];
+      if (option === 'yes') {
+        subDoc.set({ helpful: { yes: count + 1 } });
+      } else {
+        subDoc.set({ helpful: { no: count + 1 } });
+      }
       question[0].save((err, newObj) => {
           if (err) {
             console.log(err);
