@@ -43,7 +43,7 @@ app.post('/api/products/questions/:product_id', (req, res) => {
 
 /********* IF TIME ALLOWS **********/
 
-app.patch('/api/products/questions/:question_id/:answer_id/', (req, res) => {
+app.patch('/api/products/questions/:question_id/:answer_id', (req, res) => {
   const quesId = req.params.question_id;
   const id = req.params.answer_id;
   const filter = { question_id: quesId };

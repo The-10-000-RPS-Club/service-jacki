@@ -46,51 +46,58 @@ width: 20%;
 `;
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      questions: [],
-      totalQuestions: 0,
-    };
-    this.getQuestions = this.getQuestions.bind(this);
-    this.nextPage = this.nextPage.bind(this);
-  }
-
-  componentDidMount() {
-    this.getQuestions();
-  }
-
-  getQuestions() {
-    axios.get('/api/products/questions')
-      .then((data) => this.setState({ questions: data.data }))
-      .catch((err) => console.log(err));
+	constructor(props) {
+		super(props);
+		this.state = {
+			questions: [],
+			totalQuestions: 0,
+		};
+		this.getQuestions = this.getQuestions.bind(this);
+		// this.nextPage = this.nextPage.bind(this);
 	}
-	
-  // nextPage(pageNumber) {
+
+	componentDidMount() {
+		this.getQuestions();
+	}
+
+	getQuestions() {
+		axios.get('/api/products/questions')
+			.then((data) => this.setState({ questions: data.data }))
+			.catch((err) => console.log(err));
+	}
+
+	// nextPage(pageNumber) {
 	//extra credit
 	// }
 
-	// incrementHelpful(choice) {
-	// 	axios.patch('')
+	// incrementHelpfulYes() {
+	// 	axios.patch('/api/products/questions/:question_id/:answer_id')
+	// 		.then((data) => console.log('yes clicked'))
 	// }
 
-  render() {
-    return (
-      <div>
-        <div>
-          <Wrapper>
-            <div>
-              <QuestionButton>Ask a question</QuestionButton>
-              <h3>Questions & Answers</h3>
-              <Sort><p>Sort by: <select></select>&#9662;</p></Sort>
-            </div>
-          </Wrapper>
-          <div><QuestionList questions={this.state.questions} /></div>
-        </div>
-        <div><LoadMore onClick={() => console.log('clicked')}>Load more</LoadMore></div>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div>
+				<div>
+					<Wrapper>
+						<div>
+							<QuestionButton>Ask a question</QuestionButton>
+							<h3>Questions & Answers</h3>
+							<Sort><p>Sort by: <select>
+								<option href='#'>Newest questions</option>
+								<option href='#'>Newest answers</option>
+								<option href='#'>Most answered</option>
+								<option href='#'>Answers Needed</option>
+								<option href='#'>Most helpful answers</option>
+							</select></p></Sort>
+						</div>
+					</Wrapper>
+					<div><QuestionList questions={this.state.questions} /></div>
+				</div>
+				<div><LoadMore onClick={() => console.log('clicked')}>Load more</LoadMore></div>
+			</div>
+		);
+	}
 }
 
 export default App;

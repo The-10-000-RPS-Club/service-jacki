@@ -36,6 +36,12 @@ const AnswerButton = styled.button`
 	background-color: white;
 	margin: 10px;
 	border-radius: 2px;
+	margin-bottom: 40px;
+`;
+
+const QuestionTime = styled.button`
+	font-family: Stuart, Georgia, serif;
+	border: none;
 `;
 
 const User = styled.div`
@@ -48,17 +54,23 @@ const QuestionBody = styled.div`
 font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 font-size: 18px;
 font-weight: 700;
+margin-bottom: 40px;
+`;
+
+const AnswerBody = styled.div`
+font-family: Stuart, Georgia, serif;
+padding-bottom: 15px;
 `;
 
 const Question = (props) => (
 	<Wrapper>
 	<div>
-		<AnswerNumber><p>{props.question.answers.length}</p><p>{'\n'}answers</p></AnswerNumber>
-		<div><User>{props.question.user}</User>&#183; {moment(props.question.created_at).startOf('hour').fromNow()}</div>
+		<AnswerNumber><p>{props.question.answers.length}</p><p>answers</p></AnswerNumber>
+		<div><User>{props.question.user} &#183; <QuestionTime>{moment(props.question.created_at).startOf('hour').fromNow()}</QuestionTime></User></div>
 		<QuestionBody><p href='#'>{props.question.question_body}</p></QuestionBody>
 		<AnswerButton>Answer the question</AnswerButton>
-	<p>{props.question.answers[0].user} <span>&#183;</span> {moment(props.question.answers[0].created_at).startOf('hour').fromNow()}</p>
-	<p>{props.question.answers[0].body}</p>
+	<div><User>{props.question.answers[0].user} &#183; <QuestionTime>{moment(props.question.answers[0].created_at).startOf('hour').fromNow()}</QuestionTime></User></div>
+	<AnswerBody><p>{props.question.answers[0].body}</p></AnswerBody>
 	<p>Helpful? <HelpfulButton>yes: {props.question.answers[0].helpful.yes}</HelpfulButton> <HelpfulButton>no: {props.question.answers[0].helpful.no}</HelpfulButton> <HelpfulButton>Report as inappropriate</HelpfulButton> </p>
 	</div>
 	</Wrapper>
