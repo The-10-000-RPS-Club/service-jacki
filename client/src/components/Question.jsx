@@ -19,6 +19,9 @@ const HelpfulButton = styled.button`
 	background-color: white;
 	border: 1px solid grey;
 	border-radius: 2px;
+	&:hover {
+    box-shadow: inset 0 0 3px #000000;
+  }
 `;
 
 const AnswerNumber = styled.section`
@@ -37,16 +40,22 @@ const AnswerButton = styled.button`
 
 const User = styled.div`
 	font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
-	font-size: 16px;
+	font-size: 15px;
 	font-weight: 700;
+`;
+
+const QuestionBody = styled.div`
+font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
+font-size: 18px;
+font-weight: 700;
 `;
 
 const Question = (props) => (
 	<Wrapper>
 	<div>
 		<AnswerNumber><p>{props.question.answers.length}</p><p>{'\n'}answers</p></AnswerNumber>
-		<div><User>{props.question.user}</User><span>&#183;</span> {moment(props.question.created_at).startOf('hour').fromNow()}</div>
-		<h3>{props.question.question_body}</h3>
+		<div><User>{props.question.user}</User>&#183; {moment(props.question.created_at).startOf('hour').fromNow()}</div>
+		<QuestionBody><p href='#'>{props.question.question_body}</p></QuestionBody>
 		<AnswerButton>Answer the question</AnswerButton>
 	<p>{props.question.answers[0].user} <span>&#183;</span> {moment(props.question.answers[0].created_at).startOf('hour').fromNow()}</p>
 	<p>{props.question.answers[0].body}</p>

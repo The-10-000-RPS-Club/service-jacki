@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 
 const path = require('path');
 
+const extend = require('extend');
+
 const Questions = require('../database/Question.js');
 
 const app = express();
@@ -41,24 +43,29 @@ app.post('/api/products/questions/:product_id', (req, res) => {
 
 /********* IF TIME ALLOWS **********/
 
-// app.patch('/api/questions/:question_id/:answer_id', (req, res) => {
-//   const quesId = req.params.question_id;
-//   const ansId = req.params.answer_id;
-//   const obj = Questions.find({ question_id: quesId }).exec();
-//   // Questions.findOneAndUpdate({ question_id: quesId, answer_id: ansId }, { $inc: { answers.no: 1 }}).exec()
-//   Questions.find({ question_id: quesId }).exec()
-//   .then((data) => {
-//     for (let i = 0; i < data[0].answers.length; i += 1) {
-//       if (data[0].answers[i].answer_id === JSON.parse(ansId)) {
-//         data[0].answers[i].helpful.no += 1;
-//       }
-//     }
-//     Questions.findOneAndReplace(obj, data);
-//     // console.log('obj: ', obj.Promise, 'data: ', data.Promise);
-//       res.send(obj);
-//     })
-//     .catch((err) => res.send(err));
-// });
+app.patch('/api/products/questions/:question_id/:answer_id/', (req, res) => {
+  const quesId = req.params.question_id;
+  const id = req.params.answer_id;
+  const filter = { question_id: quesId };
+  Questions.find(filter)
+    .then((question) => {
+      const subDoc = question[0].answers.id(id);
+      const yesNum = subDoc.helpful.yes;
+      subDoc.set({ helpful: { yes: yesNum + 1 } });
+      console.log(yesNum);
+      question[0].save((err, newObj) => {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log('succcess', newObj);
+          }
+        });
+      return question;
+    })
+    .then((data) => res.send(data))
+    // save parent question not child
+    .catch((err) => console.log(err));
+});
 
 app.listen(PORT, () => {
   console.log(`listening on port: ${PORT}`);
