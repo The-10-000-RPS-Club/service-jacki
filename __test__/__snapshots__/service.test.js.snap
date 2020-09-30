@@ -293,7 +293,7 @@ exports[`renders QuestionList component correctly 1`] = `
             <button
               className="sc-iqAbSa cSamcM"
             >
-              21 minutes ago
+              an hour ago
             </button>
           </div>
         </div>
@@ -320,7 +320,7 @@ exports[`renders QuestionList component correctly 1`] = `
             <button
               className="sc-eCApGN fooWmP"
             >
-              21 minutes ago
+              an hour ago
             </button>
           </div>
         </div>
