@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`A suite example using Snapshot renders App component correctly 1`] = `
+<div>
+  <div>
+    <section
+      className="sc-fnVYJo dPttRp"
+    >
+      <div>
+        <button
+          className="sc-fFSRdu CtOHj"
+        >
+          Ask a question
+        </button>
+        <h3>
+          Questions & Answers
+        </h3>
+        <div
+          className="sc-bkbjAj ifuNii"
+        >
+          <p>
+            Sort by: 
+            <select>
+              <option
+                href="#"
+              >
+                Newest questions
+              </option>
+              <option
+                href="#"
+              >
+                Newest answers
+              </option>
+              <option
+                href="#"
+              >
+                Most answered
+              </option>
+              <option
+                href="#"
+              >
+                Answers Needed
+              </option>
+              <option
+                href="#"
+              >
+                Most helpful answers
+              </option>
+            </select>
+          </p>
+        </div>
+      </div>
+    </section>
+    <div>
+      <div>
+        <section
+          className="sc-hBMVcZ chhbmF"
+        >
+          <p>
+            0
+             Questions
+          </p>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div>
+    <button
+      className="sc-iemXMA egDyyf"
+      onClick={[Function]}
+    >
+      Load more
+    </button>
+  </div>
+</div>
+`;
+
+exports[`A suite example using Snapshot renders App correctly 1`] = `
+<div>
+  <div>
+    <section
+      className="sc-fnVYJo dPttRp"
+    >
+      <div>
+        <button
+          className="sc-fFSRdu CtOHj"
+        >
+          Ask a question
+        </button>
+        <h3>
+          Questions & Answers
+        </h3>
+        <div
+          className="sc-bkbjAj ifuNii"
+        >
+          <p>
+            Sort by: 
+            <select>
+              <option
+                href="#"
+              >
+                Newest questions
+              </option>
+              <option
+                href="#"
+              >
+                Newest answers
+              </option>
+              <option
+                href="#"
+              >
+                Most answered
+              </option>
+              <option
+                href="#"
+              >
+                Answers Needed
+              </option>
+              <option
+                href="#"
+              >
+                Most helpful answers
+              </option>
+            </select>
+          </p>
+        </div>
+      </div>
+    </section>
+    <div>
+      <div>
+        <section
+          className="sc-hBMVcZ chhbmF"
+        >
+          <p>
+            0
+             Questions
+          </p>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div>
+    <button
+      className="sc-iemXMA egDyyf"
+      onClick={[Function]}
+    >
+      Load more
+    </button>
+  </div>
+</div>
+`;

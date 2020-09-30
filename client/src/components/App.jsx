@@ -6,6 +6,8 @@ import styled from 'styled-components';
 
 import QuestionList from './QuestionList.jsx';
 
+import DropDown from './DropDown.jsx';
+
 
 
 function App() {
@@ -44,14 +46,7 @@ function App() {
           <div>
             <QuestionButton>Ask a question</QuestionButton>
             <h3>Questions & Answers</h3>
-            <Sort>
-              <p>Sort by: <select>
-                <option href='#'>Newest questions</option>
-                <option href='#'>Newest answers</option>
-               <option href='#'>Most answered</option>
-               <option href='#'>Answers Needed</option>
-              <option href='#'>Most helpful answers</option>
-            </select></p></Sort>
+           <DropDown />
           </div>
         </Wrapper>
         <div>
@@ -81,14 +76,6 @@ padding: 10px;
 border-radius: 2px;
 font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 font-size: 16px;
-`;
-
-const Sort = styled.div`
-color: black;
-float: right;
-margin-bottom: 20px;
-font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
-font-size: 14px;
 `;
 
 const LoadMore = styled.button`

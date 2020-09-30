@@ -1,13 +1,13 @@
 
 const sampleData = [
     {
-question_id: 058, 
-product_id: 017,
+question_id: '058', 
+product_id: '017',
 user: 'BobbyB',
 question_body: 'Does this product fit both men and women?',
 answer: [
     {
-    id: 023,
+    id: '023',
     body: 'Yes it does.',
     user: 'REI Helper Sally',
     helpful: {
@@ -18,13 +18,13 @@ answer: [
 ],
 }, 
 {
-    question_id: 009,
-    product_id: 043,
+    question_id: '009',
+    product_id: '043',
     user: 'Rachel098',
     question_body: 'How durable is this?',
     answer: [
         {
-        id: 023,
+        id: '023',
         body: 'It can stand up to all your favortie activities.',
         user: 'REI Helper Jim',
         helpful: {
@@ -33,7 +33,7 @@ answer: [
         },
         }, 
         {
-            id: 079,
+            id: '079',
             body: 'It tore after one week.',
             user: 'CaliBro43',
             helpful: {
@@ -44,3 +44,5 @@ answer: [
     ],
     },
 ]
+
+module.exports = sampleData;
