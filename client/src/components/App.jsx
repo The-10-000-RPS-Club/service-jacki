@@ -38,8 +38,8 @@ function App() {
     <div>
       <div>
         <Wrapper>
-          <div>
             <QuestionButton>Ask a question</QuestionButton>
+          <div>
             <Title>
 							<div>Questions & Answers</div>
 							</Title>
@@ -59,7 +59,7 @@ function App() {
 
 const Wrapper = styled.section`
 margin: auto;
-width: 55%;
+width: 53%;
 position: relative;
 padding: 10px;
 font-family: Stuart, Georgia, serif;
@@ -72,21 +72,23 @@ padding 10px;
 position: relative;
 padding-bottom: 30px;
 padding-left: 0px;
+width: 300px;
 `;
 
 const QuestionButton = styled.button`
 background-color: #3973A1;
 color: white;
-float: right;
 border: none;
+float: right;
+z-index: 9;
 padding: 13px;
 border-radius: 3px;
 font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
+font-size: 16px;
 cursor: pointer;
 &:hover {
 	background-color: #2B455C;
 }
-font-size: 16px;
 `;
 
 export default App;

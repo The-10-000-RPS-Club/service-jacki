@@ -39,3 +39,10 @@ it('renders QuestionList component correctly', () => {
 		.toJSON();
 	expect(tree).toMatchSnapshot();
 });
+
+// it('renders Helpful component correctly', () => {
+// 	const tree = renderer
+// 		.create(<Helpful question={sampleData} />)
+// 		.toJSON();
+// 	expect(tree).toMatchSnapshot();
+// });
