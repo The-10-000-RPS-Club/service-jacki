@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import styled from 'styled-components';
 
-function LoadMore({ setNumQuestions, numQuestions}) {
+function LoadMore({ setNumQuestions, numQuestions, getQuestions}) {
 
 	const [display, setDisplay] = useState(numQuestions);
 
@@ -11,7 +11,9 @@ function LoadMore({ setNumQuestions, numQuestions}) {
   }, [display]);
 
 	return (
-		<LoadMoreButton onClick={() => setDisplay(display + 2)}>
+		<LoadMoreButton onClick={() => {
+			getQuestions();
+			setDisplay(display + 5)}}>
 		 Load More
 		</LoadMoreButton>
 	)
@@ -27,6 +29,9 @@ display: flex;
 justify-content: center;
 margin: auto;
 width: 20%;
+&:hover {
+	cursor: pointer;
+}
 `;
 
 export default LoadMore;

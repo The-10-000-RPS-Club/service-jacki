@@ -16,32 +16,26 @@ function App() {
 
 	const [questions, setQuestions] = useState([]);
 	const [numQuestions, setNumQuestions] = useState(5);
-	const [sort, setSort] = useState(null);
+	// const [sort, setSort] = useState(null);
 
 	const getQuestions = () => {
 		axios.get('/api/products/questions')
-			.then((data) => setQuestions(data.data))
+			.then((data) => setQuestions(questions.concat(data.data)))
 			.catch((err) => (err));
 	};
 	
 	const incrementHelpfulCount = (quesId, ansId, option) => {
 		axios.patch(`/api/products/questions/${quesId}/${ansId}/${option}`)
-			.then((data) => console.log('data ', data.data[0]))
+			.then((data) => console.log(`${option} count increased`))
 			.catch((err) => (err));
 	};
 
 	useEffect(() => {
     getQuestions();
-  });
-
-	// handleHelpfulClick() {
+	}, [numQuestions]);
 	
-	// }
 
-	// nextPage(pageNumber) {
-	//extra credit
-	// }
-
+console.log(numQuestions, questions.length);
   return (
     <div>
       <div>
@@ -59,7 +53,7 @@ function App() {
         </div>
       </div>
       <div>
-      <LoadMore numQuestions={numQuestions} setNumQuestions={setNumQuestions}/>
+      <LoadMore numQuestions={numQuestions} setNumQuestions={setNumQuestions} getQuestions={getQuestions}/>
 			</div>
     </div>
   );

@@ -27,7 +27,8 @@ const HelpfulButton = styled.button`
   border: 1px solid grey;
   border-radius: 2px;
   &:hover {
-    box-shadow: inset 0 0 3px #000000;
+		box-shadow: inset 0 0 3px #000000;
+		cursor: pointer;
   }
   position: relative;
 `;
