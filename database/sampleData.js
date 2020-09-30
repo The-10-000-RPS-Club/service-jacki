@@ -1,14 +1,16 @@
 
 const sampleData = [
     {
+created_at: 'June',
 question_id: '058', 
 product_id: '017',
 user: 'BobbyB',
 question_body: 'Does this product fit both men and women?',
-answer: [
+answers: [
     {
-    id: '023',
+    answer_id: '023',
     body: 'Yes it does.',
+    created_at: 'July',
     user: 'REI Helper Sally',
     helpful: {
         yes: 0,
@@ -22,7 +24,7 @@ answer: [
     product_id: '043',
     user: 'Rachel098',
     question_body: 'How durable is this?',
-    answer: [
+    answers: [
         {
         id: '023',
         body: 'It can stand up to all your favortie activities.',
