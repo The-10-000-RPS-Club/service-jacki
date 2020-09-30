@@ -4,7 +4,7 @@ import Question from './Question.jsx';
 
 const Wrapper = styled.section`
 margin: auto;
-width: 50%;
+width: 60%;
 position: relative;
 font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 font-size: 14px;
@@ -14,7 +14,7 @@ const QuestionList = (props) => (
   <div>
 	<Wrapper><p>{props.questions.length} Questions</p></Wrapper>
   {props.questions.map((question, i) => (
-    <Question question={question} key={i} />
+    <Question question={question} key={i} incrementHelpfulCount={props.incrementHelpfulCount}/>
     ))}
   </div>
 );

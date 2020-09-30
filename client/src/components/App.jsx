@@ -8,7 +8,7 @@ import QuestionList from './QuestionList.jsx';
 
 const Wrapper = styled.section`
 margin: auto;
-width: 50%;
+width: 60%;
 position: relative;
 padding: 10px;
 font-family: Stuart, Georgia, serif;
@@ -54,7 +54,7 @@ class App extends React.Component {
 			sort: null
 		};
 		this.getQuestions = this.getQuestions.bind(this);
-		// this.nextPage = this.nextPage.bind(this);
+		this.incrementHelpfulCount = this.incrementHelpfulCount.bind(this);
 	}
 
 	componentDidMount() {
@@ -67,18 +67,19 @@ class App extends React.Component {
 			.catch((err) => console.log(err));
 	}
 
-	handleHelpfulClick() {
+	// handleHelpfulClick() {
 		
-	}
+	// }
 
 	// nextPage(pageNumber) {
 	//extra credit
 	// }
 
-	// incrementHelpfulYes() {
-	// 	axios.patch('/api/products/questions/:question_id/:answer_id')
-	// 		.then((data) => console.log('yes clicked'))
-	// }
+	incrementHelpfulCount(quesId, ansId, option) {
+		axios.patch(`/api/products/questions/${quesId}/${ansId}/${option}`)
+			.then((data) => console.log(data.data[0]))
+			.catch((err) => console.log(err));
+	}
 
 	render() {
 		return (
@@ -97,7 +98,7 @@ class App extends React.Component {
 							</select></p></Sort>
 						</div>
 					</Wrapper>
-					<div><QuestionList questions={this.state.questions} /></div>
+					<div><QuestionList questions={this.state.questions} incrementHelpfulCount={this.incrementHelpfulCount}/></div>
 				</div>
 				<div><LoadMore onClick={() => console.log('clicked')}>Load more</LoadMore></div>
 			</div>
