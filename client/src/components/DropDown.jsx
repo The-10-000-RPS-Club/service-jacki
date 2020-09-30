@@ -11,15 +11,15 @@ function DropDown() {
 		<NavbarDropdown>
 		<p>Sort by: {dropDownContent[0]} &#x25BE;</p>
 		<NavbarDropdownContent>
-        <div>{dropDownContent[0]}</div>
+			<SingleDropdownOption><div>{dropDownContent[0]}</div></SingleDropdownOption>
 				<p></p>
-				<div>{dropDownContent[1]}</div>
+				<SingleDropdownOption><div>{dropDownContent[1]}</div></SingleDropdownOption>
 				<p></p>
-				<div>{dropDownContent[2]}</div>
+				<SingleDropdownOption><div>{dropDownContent[2]}</div></SingleDropdownOption>
 				<p></p>
-				<div>{dropDownContent[2]}</div>
+				<SingleDropdownOption><div>{dropDownContent[3]}</div></SingleDropdownOption>
 				<p></p>
-				<div>{dropDownContent[4]}</div>
+				<SingleDropdownOption><div>{dropDownContent[4]}</div></SingleDropdownOption>
       </NavbarDropdownContent>
 	</NavbarDropdown>
 	</div>
@@ -33,7 +33,6 @@ background-color: white;
 border: 1px solid black;
 min-width: 160px;
 box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0, 2);
-padding: 12px 16px;
 z-index: 1;
 font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 `;
@@ -46,6 +45,16 @@ float: right;
 	display: inline-block;
 }
 font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
+`;
+
+const SingleDropdownOption = styled.div`
+border: 10px solid white;
+&:hover {
+	background: darkslategray;
+	color: white;
+	cursor: pointer;
+	border: 10px solid darkslategrey;
+}
 `;
 
 export default DropDown;
