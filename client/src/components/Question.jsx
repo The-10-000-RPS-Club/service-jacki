@@ -66,17 +66,17 @@ font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 font-size 14px;
 `;
 
-const Question = (props) => (
+const Question = ({incrementHelpfulCount, question}) => (
 	<div>
 	<Wrapper>
 	<div>
-	<AnswerNumber><p>{props.question.answers.length}</p><AnswerText><p>answers</p></AnswerText></AnswerNumber>
-		<div><User>{props.question.user} &#183; <QuestionTime>{moment(props.question.created_at).startOf('hour').fromNow()}</QuestionTime></User></div>
-		<QuestionBody><p href='#'>{props.question.question_body}</p></QuestionBody>
+	<AnswerNumber><p>{question.answers.length}</p><AnswerText><p>answers</p></AnswerText></AnswerNumber>
+		<div><User>{question.user} &#183; <QuestionTime>{moment(question.created_at).startOf('hour').fromNow()}</QuestionTime></User></div>
+		<QuestionBody><p href='#'>{question.question_body}</p></QuestionBody>
 		<AnswerButton>Answer the question</AnswerButton>
 	</div>
-	<Answer question={props.question} incrementHelpfulCount={props.incrementHelpfulCount}/>
-	<Helpful question={props.question} incrementHelpfulCount={props.incrementHelpfulCount}/>
+	<Answer question={question} />
+	<Helpful question={question} incrementHelpfulCount={incrementHelpfulCount}/>
 	</Wrapper>
 	</div>
 );

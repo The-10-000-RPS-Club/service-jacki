@@ -6,13 +6,12 @@ import styled from 'styled-components';
 
 import Helpful from './Helpful.jsx';
 
-const Answer = (props) => {
-	console.log(props);
+const Answer = ({ question }) => {
 	return (
 		<div>
 		
-		<div><User>{props.question.answers[0].user} &#183; <QuestionTime>{moment(props.question.answers[0].created_at).startOf('hour').fromNow()}</QuestionTime></User></div>
-		<AnswerBody><p>{props.question.answers[0].body}</p></AnswerBody>
+		<div><User>{question.answers[0].user} &#183; <QuestionTime>{moment(question.answers[0].created_at).startOf('hour').fromNow()}</QuestionTime></User></div>
+		<AnswerBody><p>{question.answers[0].body}</p></AnswerBody>
 		</div>
 	);
 };

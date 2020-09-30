@@ -10,11 +10,11 @@ font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 font-size: 14px;
 `;
 
-const QuestionList = (props) => (
+const QuestionList = ({ questions, incrementHelpfulCount }) => (
   <div>
-	<Wrapper><p>{props.questions.length} Questions</p></Wrapper>
-  {props.questions.map((question, i) => (
-    <Question question={question} key={i} incrementHelpfulCount={props.incrementHelpfulCount}/>
+	<Wrapper><p>{questions.length} Questions</p></Wrapper>
+  {questions.map((question, i) => (
+    <Question question={question} key={i} incrementHelpfulCount={incrementHelpfulCount}/>
     ))}
   </div>
 );

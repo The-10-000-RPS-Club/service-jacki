@@ -1,10 +1,65 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import axios from 'axios';
 
 import styled from 'styled-components';
 
 import QuestionList from './QuestionList.jsx';
+
+
+
+function App() {
+
+	const [questions, setQuestions] = useState([]);
+	const [sort, setSort] = useState(null);
+
+	const getQuestions = () => {
+		axios.get('/api/products/questions')
+			.then((data) => setQuestions(data.data))
+			.catch((err) => (err));
+	};
+	
+	const incrementHelpfulCount = (quesId, ansId, option) => {
+		axios.patch(`/api/products/questions/${quesId}/${ansId}/${option}`)
+			.then((data) => console.log(data.data[0]))
+			.catch((err) => (err));
+	};
+
+	useEffect(() => {
+    getQuestions();
+  });
+
+	// handleHelpfulClick() {
+	
+	// }
+
+	// nextPage(pageNumber) {
+	//extra credit
+	// }
+
+		return (
+			<div>
+				<div>
+					<Wrapper>
+						<div>
+							<QuestionButton>Ask a question</QuestionButton>
+							<h3>Questions & Answers</h3>
+							<Sort><p>Sort by: <select>
+								<option href='#'>Newest questions</option>
+								<option href='#'>Newest answers</option>
+								<option href='#'>Most answered</option>
+								<option href='#'>Answers Needed</option>
+								<option href='#'>Most helpful answers</option>
+							</select></p></Sort>
+						</div>
+					</Wrapper>
+					<div><QuestionList questions={questions} incrementHelpfulCount={incrementHelpfulCount}/></div>
+				</div>
+				<div><LoadMore onClick={() => console.log('clicked')}>Load more</LoadMore></div>
+			</div>
+		);
+	
+}
 
 const Wrapper = styled.section`
 margin: auto;
@@ -44,66 +99,5 @@ justify-content: center;
 margin: auto;
 width: 20%;
 `;
-
-class App extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			questions: [],
-			totalQuestions: 0,
-			sort: null
-		};
-		this.getQuestions = this.getQuestions.bind(this);
-		this.incrementHelpfulCount = this.incrementHelpfulCount.bind(this);
-	}
-
-	componentDidMount() {
-		this.getQuestions();
-	}
-
-	getQuestions() {
-		axios.get('/api/products/questions')
-			.then((data) => this.setState({ questions: data.data }))
-			.catch((err) => console.log(err));
-	}
-
-	// handleHelpfulClick() {
-		
-	// }
-
-	// nextPage(pageNumber) {
-	//extra credit
-	// }
-
-	incrementHelpfulCount(quesId, ansId, option) {
-		axios.patch(`/api/products/questions/${quesId}/${ansId}/${option}`)
-			.then((data) => console.log(data.data[0]))
-			.catch((err) => console.log(err));
-	}
-
-	render() {
-		return (
-			<div>
-				<div>
-					<Wrapper>
-						<div>
-							<QuestionButton>Ask a question</QuestionButton>
-							<h3>Questions & Answers</h3>
-							<Sort><p>Sort by: <select>
-								<option href='#'>Newest questions</option>
-								<option href='#'>Newest answers</option>
-								<option href='#'>Most answered</option>
-								<option href='#'>Answers Needed</option>
-								<option href='#'>Most helpful answers</option>
-							</select></p></Sort>
-						</div>
-					</Wrapper>
-					<div><QuestionList questions={this.state.questions} incrementHelpfulCount={this.incrementHelpfulCount}/></div>
-				</div>
-				<div><LoadMore onClick={() => console.log('clicked')}>Load more</LoadMore></div>
-			</div>
-		);
-	}
-}
 
 export default App;
