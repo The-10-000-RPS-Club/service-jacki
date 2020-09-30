@@ -1,0 +1,362 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`A suite example using Snapshot renders App component correctly 1`] = `
+<div>
+  <div>
+    <section
+      className="sc-iemXMA jTBmQy"
+    >
+      <div>
+        <button
+          className="sc-hHEjAm fYAvwg"
+        >
+          Ask a question
+        </button>
+        <div
+          className="sc-dIvqjp hXnLBS"
+        >
+          <div>
+            Questions & Answers
+          </div>
+        </div>
+        <div>
+          <div
+            className="sc-fnVYJo dMTIYI"
+          >
+            <p>
+              Sort by: 
+              Newest questions
+               ▾
+            </p>
+            <div
+              className="sc-hBMVcZ jYRonn"
+            >
+              <div
+                className="sc-fFSRdu doA-dPq"
+              >
+                <div>
+                  Newest questions
+                </div>
+              </div>
+              <p />
+              <div
+                className="sc-fFSRdu doA-dPq"
+              >
+                <div>
+                  Newest answers
+                </div>
+              </div>
+              <p />
+              <div
+                className="sc-fFSRdu doA-dPq"
+              >
+                <div>
+                  Most answered
+                </div>
+              </div>
+              <p />
+              <div
+                className="sc-fFSRdu doA-dPq"
+              >
+                <div>
+                  Answers needed
+                </div>
+              </div>
+              <p />
+              <div
+                className="sc-fFSRdu doA-dPq"
+              >
+                <div>
+                  Most helpful answers
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div>
+      <div>
+        <section
+          className="sc-ksluoS bTRPFs"
+        >
+          <p>
+            1-
+            0
+             of 
+            0
+             Questions
+          </p>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div>
+    <button
+      className="sc-bkbjAj gOXpHr"
+      onClick={[Function]}
+    >
+      Load More
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders Dropdown component correctly 1`] = `
+<div>
+  <div
+    className="sc-fnVYJo dMTIYI"
+  >
+    <p>
+      Sort by: 
+      Newest questions
+       ▾
+    </p>
+    <div
+      className="sc-hBMVcZ jYRonn"
+    >
+      <div
+        className="sc-fFSRdu doA-dPq"
+      >
+        <div>
+          Newest questions
+        </div>
+      </div>
+      <p />
+      <div
+        className="sc-fFSRdu doA-dPq"
+      >
+        <div>
+          Newest answers
+        </div>
+      </div>
+      <p />
+      <div
+        className="sc-fFSRdu doA-dPq"
+      >
+        <div>
+          Most answered
+        </div>
+      </div>
+      <p />
+      <div
+        className="sc-fFSRdu doA-dPq"
+      >
+        <div>
+          Answers needed
+        </div>
+      </div>
+      <p />
+      <div
+        className="sc-fFSRdu doA-dPq"
+      >
+        <div>
+          Most helpful answers
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders QuestionList component correctly 1`] = `
+<div>
+  <section
+    className="sc-ksluoS bTRPFs"
+  >
+    <p>
+      1-
+      2
+       of 
+      2
+       Questions
+    </p>
+  </section>
+  <div>
+    <section
+      className="sc-pNWxx doEPKv"
+    >
+      <div>
+        <section
+          className="sc-jrsJCI jKdWQN"
+        >
+          <p>
+            1
+          </p>
+          <div
+            className="sc-bqGHjH gpPyZL"
+          >
+            <p>
+              answers
+            </p>
+          </div>
+        </section>
+        <div>
+          <div
+            className="sc-crzoUp fyvLPQ"
+          >
+            BobbyB
+             · 
+            <button
+              className="sc-iqAbSa cSamcM"
+            >
+              Invalid date
+            </button>
+          </div>
+        </div>
+        <div
+          className="sc-dIsAE kbqA-dx"
+        >
+          <p>
+            Does this product fit both men and women?
+          </p>
+        </div>
+        <button
+          className="sc-kEqYlL byYNjL"
+        >
+          Answer the question
+        </button>
+      </div>
+      <div>
+        <div>
+          <div
+            className="sc-jSFkmK crwJGT"
+          >
+            REI Helper Sally
+             · 
+            <button
+              className="sc-eCApGN fooWmP"
+            >
+              Invalid date
+            </button>
+          </div>
+        </div>
+        <div
+          className="sc-iCoHVE johfzo"
+        >
+          <p>
+            Yes it does.
+          </p>
+        </div>
+      </div>
+      <p>
+        Helpful? 
+        <button
+          className="sc-bdnylx jJAktm yes"
+          onClick={[Function]}
+        >
+          yes: 
+          0
+        </button>
+         
+        <button
+          className="sc-bdnylx jJAktm no"
+          onClick={[Function]}
+        >
+          no: 
+          1
+        </button>
+         
+        <button
+          className="sc-bdnylx jJAktm"
+        >
+          Report as inappropriate
+        </button>
+      </p>
+    </section>
+  </div>
+  <div>
+    <section
+      className="sc-pNWxx doEPKv"
+    >
+      <div>
+        <section
+          className="sc-jrsJCI jKdWQN"
+        >
+          <p>
+            2
+          </p>
+          <div
+            className="sc-bqGHjH gpPyZL"
+          >
+            <p>
+              answers
+            </p>
+          </div>
+        </section>
+        <div>
+          <div
+            className="sc-crzoUp fyvLPQ"
+          >
+            Rachel098
+             · 
+            <button
+              className="sc-iqAbSa cSamcM"
+            >
+              21 minutes ago
+            </button>
+          </div>
+        </div>
+        <div
+          className="sc-dIsAE kbqA-dx"
+        >
+          <p>
+            How durable is this?
+          </p>
+        </div>
+        <button
+          className="sc-kEqYlL byYNjL"
+        >
+          Answer the question
+        </button>
+      </div>
+      <div>
+        <div>
+          <div
+            className="sc-jSFkmK crwJGT"
+          >
+            REI Helper Jim
+             · 
+            <button
+              className="sc-eCApGN fooWmP"
+            >
+              21 minutes ago
+            </button>
+          </div>
+        </div>
+        <div
+          className="sc-iCoHVE johfzo"
+        >
+          <p>
+            It can stand up to all your favortie activities.
+          </p>
+        </div>
+      </div>
+      <p>
+        Helpful? 
+        <button
+          className="sc-bdnylx jJAktm yes"
+          onClick={[Function]}
+        >
+          yes: 
+          2
+        </button>
+         
+        <button
+          className="sc-bdnylx jJAktm no"
+          onClick={[Function]}
+        >
+          no: 
+          0
+        </button>
+         
+        <button
+          className="sc-bdnylx jJAktm"
+        >
+          Report as inappropriate
+        </button>
+      </p>
+    </section>
+  </div>
+</div>
+`;

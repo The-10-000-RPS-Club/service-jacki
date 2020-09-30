@@ -6,6 +6,7 @@ import App from '../client/src/components/App.jsx';
 import QuestionList from '../client/src/components/QuestionList.jsx';
 import Question from '../client/src/components/Question.jsx';
 import Helpful from '../client/src/components/Helpful.jsx';
+import DropDown from '../client/src/components/DropDown.jsx';
 import sampleData from '../database/sampleData.js';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -25,12 +26,16 @@ describe('A suite example using Snapshot',  () => {
   });
 });
 
-// it('renders Helpful component correctly', () => {
-// 	const tree = renderer
-// 		.create(<Helpful
-// 			question={sampleData}
-// 			incrementHelpfulCount={()=>(null)}
-// 			/>)
-// 		.toJSON();
-// 	expect(tree).toMatchSnapshot();
-// });
+it('renders Dropdown component correctly', () => {
+	const tree = renderer
+		.create(<DropDown />)
+		.toJSON();
+	expect(tree).toMatchSnapshot();
+});
+
+it('renders QuestionList component correctly', () => {
+	const tree = renderer
+		.create(<QuestionList questions={sampleData} />)
+		.toJSON();
+	expect(tree).toMatchSnapshot();
+});
