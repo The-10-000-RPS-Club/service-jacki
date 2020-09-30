@@ -21,7 +21,7 @@ function App() {
 	
 	const incrementHelpfulCount = (quesId, ansId, option) => {
 		axios.patch(`/api/products/questions/${quesId}/${ansId}/${option}`)
-			.then((data) => console.log(data.data[0]))
+			.then((data) => console.log('data ', data.data[0]))
 			.catch((err) => (err));
 	};
 
@@ -37,28 +37,31 @@ function App() {
 	//extra credit
 	// }
 
-		return (
-			<div>
-				<div>
-					<Wrapper>
-						<div>
-							<QuestionButton>Ask a question</QuestionButton>
-							<h3>Questions & Answers</h3>
-							<Sort><p>Sort by: <select>
-								<option href='#'>Newest questions</option>
-								<option href='#'>Newest answers</option>
-								<option href='#'>Most answered</option>
-								<option href='#'>Answers Needed</option>
-								<option href='#'>Most helpful answers</option>
-							</select></p></Sort>
-						</div>
-					</Wrapper>
-					<div><QuestionList questions={questions} incrementHelpfulCount={incrementHelpfulCount}/></div>
-				</div>
-				<div><LoadMore onClick={() => console.log('clicked')}>Load more</LoadMore></div>
-			</div>
-		);
-	
+  return (
+    <div>
+      <div>
+        <Wrapper>
+          <div>
+            <QuestionButton>Ask a question</QuestionButton>
+            <h3>Questions & Answers</h3>
+            <Sort>
+              <p>Sort by: <select>
+                <option href='#'>Newest questions</option>
+                <option href='#'>Newest answers</option>
+               <option href='#'>Most answered</option>
+               <option href='#'>Answers Needed</option>
+              <option href='#'>Most helpful answers</option>
+            </select></p></Sort>
+          </div>
+        </Wrapper>
+        <div>
+          <QuestionList questions={questions} incrementHelpfulCount={incrementHelpfulCount}/>
+        </div>
+      </div>
+      <div>
+      <LoadMore onClick={() => console.log('clicked')}>Load more</LoadMore></div>
+    </div>
+  );
 }
 
 const Wrapper = styled.section`

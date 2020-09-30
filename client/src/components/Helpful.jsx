@@ -12,10 +12,10 @@ const Helpful = ({ question, incrementHelpfulCount }) => {
   return (
     <p>
       Helpful? <HelpfulButton className='yes' onClick={() => {
-				incrementHelpfulCount(quesId, ansId, yes);
+				incrementHelpfulCount(quesId, ansId, 'yes');
 				setYes(yes + 1);
 				}}>yes: {yes}</HelpfulButton> <HelpfulButton className='no' onClick={() => {
-					incrementHelpfulCount(quesId, ansId, no);
+					incrementHelpfulCount(quesId, ansId, 'no');
 					setNo(no + 1);
 					}}>no: {no}</HelpfulButton> <HelpfulButton>Report as inappropriate</HelpfulButton>
     </p>
