@@ -4,7 +4,7 @@ import Question from './Question.jsx';
 
 const QuestionList = ({ questions, incrementHelpfulCount }) => (
   <div>
-	<Wrapper><p>{questions.length} Questions</p></Wrapper>
+	<Wrapper><p>1-5 of {questions.length} Questions</p></Wrapper>
   {questions.map((question, i) => (
     <Question question={question} key={i} incrementHelpfulCount={incrementHelpfulCount}/>
     ))}
@@ -13,10 +13,10 @@ const QuestionList = ({ questions, incrementHelpfulCount }) => (
 
 const Wrapper = styled.section`
 margin: auto;
-width: 60%;
+width: 55%;
 position: relative;
-font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
-font-size: 14px;
+font-family: Stuart, Georgia, serif;
+font-size: 16px;
 `;
 
 export default QuestionList;

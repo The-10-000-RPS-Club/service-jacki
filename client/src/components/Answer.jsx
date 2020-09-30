@@ -18,7 +18,7 @@ const Answer = ({ question }) => {
 
 const Wrapper = styled.section`
 	margin: auto;
-	width: 60%;
+	width: 55%;
 	border-top: 1px solid grey;
 	padding: 10px;
 	position: relative;

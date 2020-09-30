@@ -45,7 +45,9 @@ function App() {
         <Wrapper>
           <div>
             <QuestionButton>Ask a question</QuestionButton>
-            <h3>Questions & Answers</h3>
+            <Title>
+							<div>Questions & Answers</div>
+							</Title>
            <DropDown />
           </div>
         </Wrapper>
@@ -60,11 +62,21 @@ function App() {
 }
 
 const Wrapper = styled.section`
+
 margin: auto;
-width: 60%;
+width: 55%;
 position: relative;
 padding: 10px;
 font-family: Stuart, Georgia, serif;
+`;
+
+const Title = styled.div`
+font-family: Stuart, Georgia, serif;
+font-size: 22px;
+padding 10px;
+position: relative;
+padding-bottom: 30px;
+padding-left: 0px;
 `;
 
 const QuestionButton = styled.button`
