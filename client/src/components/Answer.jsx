@@ -4,10 +4,18 @@ import moment from 'moment';
 
 import styled from 'styled-components';
 
-import Answer from './Answer.jsx';
-
 import Helpful from './Helpful.jsx';
 
+const Answer = (props) => {
+	console.log(props);
+	return (
+		<div>
+		
+		<div><User>{props.question.answers[0].user} &#183; <QuestionTime>{moment(props.question.answers[0].created_at).startOf('hour').fromNow()}</QuestionTime></User></div>
+		<AnswerBody><p>{props.question.answers[0].body}</p></AnswerBody>
+		</div>
+	);
+};
 
 const Wrapper = styled.section`
 	margin: auto;
@@ -66,19 +74,4 @@ font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 font-size 14px;
 `;
 
-const Question = (props) => (
-	<div>
-	<Wrapper>
-	<div>
-	<AnswerNumber><p>{props.question.answers.length}</p><AnswerText><p>answers</p></AnswerText></AnswerNumber>
-		<div><User>{props.question.user} &#183; <QuestionTime>{moment(props.question.created_at).startOf('hour').fromNow()}</QuestionTime></User></div>
-		<QuestionBody><p href='#'>{props.question.question_body}</p></QuestionBody>
-		<AnswerButton>Answer the question</AnswerButton>
-	</div>
-	<Answer question={props.question} incrementHelpfulCount={props.incrementHelpfulCount}/>
-	<Helpful question={props.question} incrementHelpfulCount={props.incrementHelpfulCount}/>
-	</Wrapper>
-	</div>
-);
-
-export default Question;
+export default Answer;
