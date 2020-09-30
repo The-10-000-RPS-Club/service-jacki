@@ -54,6 +54,10 @@ font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 font-size: 18px;
 font-weight: 700;
 margin-bottom: 40px;
+&:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
 `;
 
 const AnswerText = styled.div`
