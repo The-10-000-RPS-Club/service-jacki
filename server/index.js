@@ -48,6 +48,7 @@ app.patch('/api/products/questions/:question_id/:answer_id/:option', (req, res) 
   const id = req.params.answer_id;
   const filter = { question_id: quesId };
   const { option } = req.params;
+  console.log(typeof ansId, typeof quesId, typeof option);
   Questions.find(filter)
     .then((question) => {
       const subDoc = question[0].answers.id(id);
