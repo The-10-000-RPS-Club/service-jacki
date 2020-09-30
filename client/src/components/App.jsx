@@ -8,11 +8,14 @@ import QuestionList from './QuestionList.jsx';
 
 import DropDown from './DropDown.jsx';
 
+import LoadMore from './LoadMore.jsx';
+
 
 
 function App() {
 
 	const [questions, setQuestions] = useState([]);
+	const [numQuestions, setNumQuestions] = useState(5);
 	const [sort, setSort] = useState(null);
 
 	const getQuestions = () => {
@@ -56,7 +59,8 @@ function App() {
         </div>
       </div>
       <div>
-      <LoadMore onClick={() => console.log('clicked')}>Load more</LoadMore></div>
+      <LoadMore numQuestions={numQuestions} setNumQuestions={setNumQuestions}/>
+			</div>
     </div>
   );
 }
@@ -88,18 +92,6 @@ padding: 10px;
 border-radius: 2px;
 font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 font-size: 16px;
-`;
-
-const LoadMore = styled.button`
-background-color: light-grey;
-color: black;
-border: 1px solid;
-padding-top: 5px;
-padding-bottom: 5px;
-display: flex;
-justify-content: center;
-margin: auto;
-width: 20%;
 `;
 
 export default App;
