@@ -50,10 +50,10 @@ font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 const SingleDropdownOption = styled.div`
 border: 10px solid white;
 &:hover {
-	background: darkslategray;
+	background: #2B455C;
 	color: white;
 	cursor: pointer;
-	border: 10px solid darkslategrey;
+	border: 10px solid #2B455C;
 }
 `;
 

@@ -34,8 +34,6 @@ function App() {
     getQuestions();
 	}, [numQuestions]);
 	
-
-console.log(numQuestions, questions.length);
   return (
     <div>
       <div>
@@ -60,7 +58,6 @@ console.log(numQuestions, questions.length);
 }
 
 const Wrapper = styled.section`
-
 margin: auto;
 width: 55%;
 position: relative;
@@ -78,13 +75,17 @@ padding-left: 0px;
 `;
 
 const QuestionButton = styled.button`
-background-color: #006699;
+background-color: #3973A1;
 color: white;
 float: right;
 border: none;
-padding: 10px;
-border-radius: 2px;
+padding: 13px;
+border-radius: 3px;
 font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
+cursor: pointer;
+&:hover {
+	background-color: #2B455C;
+}
 font-size: 16px;
 `;
 

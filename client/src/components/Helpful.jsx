@@ -14,10 +14,10 @@ const Helpful = ({ question, incrementHelpfulCount }) => {
       Helpful? <HelpfulButton className='yes' onClick={() => {
 				incrementHelpfulCount(quesId, ansId, 'yes');
 				setYes(yes + 1);
-				}}>yes: {yes}</HelpfulButton> <HelpfulButton className='no' onClick={() => {
+				}}>Yes &#183; {yes}</HelpfulButton> <HelpfulButton className='no' onClick={() => {
 					incrementHelpfulCount(quesId, ansId, 'no');
 					setNo(no + 1);
-					}}>no: {no}</HelpfulButton> <HelpfulButton>Report as inappropriate</HelpfulButton>
+					}}>No &#183; {no}</HelpfulButton> <HelpfulButton>Report as inappropriate</HelpfulButton>
     </p>
   );
 };
@@ -25,7 +25,8 @@ const Helpful = ({ question, incrementHelpfulCount }) => {
 const HelpfulButton = styled.button`
   background-color: white;
   border: 1px solid grey;
-  border-radius: 2px;
+	border-radius: 2px;
+	padding: 7px;
   &:hover {
 		box-shadow: inset 0 0 3px #000000;
 		cursor: pointer;

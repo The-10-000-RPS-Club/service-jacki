@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Question from './Question.jsx';
 
 const QuestionList = ({ questions, incrementHelpfulCount }) => (
-  <div>{console.log(questions)}
+  <div>
 	<Wrapper><p>1-{questions.length} of {questions.length} Questions</p></Wrapper>
   {questions.map((question, i) => (
     <Question question={question} key={i} incrementHelpfulCount={incrementHelpfulCount}/>
@@ -15,7 +15,7 @@ const Wrapper = styled.section`
 margin: auto;
 width: 55%;
 position: relative;
-font-family: Stuart, Georgia, serif;
+font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 font-size: 16px;
 `;
 

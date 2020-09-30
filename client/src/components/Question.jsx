@@ -35,6 +35,9 @@ const AnswerButton = styled.button`
 	border-radius: 2px;
 	margin-bottom: 40px;
 	margin-left: 0px
+	&:hover {
+		cursor: pointer;
+  }
 `;
 
 const QuestionTime = styled.button`
@@ -54,10 +57,6 @@ font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 font-size: 18px;
 font-weight: 700;
 margin-bottom: 40px;
-&:hover {
-	cursor: pointer;
-	text-decoration: underline;
-}
 `;
 
 const AnswerText = styled.div`
@@ -69,7 +68,7 @@ const Question = ({incrementHelpfulCount, question}) => (
 	<div>
 	<Wrapper>
 	<div>
-	<AnswerNumber><p>{question.answers.length}</p><AnswerText><p>answers</p></AnswerText></AnswerNumber>
+	<AnswerNumber>{question.answers.length}<AnswerText>answers</AnswerText></AnswerNumber>
 		<div><User>{question.user} &#183; <QuestionTime>{moment(question.created_at).startOf('hour').fromNow()}</QuestionTime></User></div>
 		<QuestionBody><p>{question.question_body}</p></QuestionBody>
 		<AnswerButton>Answer the question</AnswerButton>
