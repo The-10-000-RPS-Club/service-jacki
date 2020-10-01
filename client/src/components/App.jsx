@@ -55,10 +55,62 @@ function App() {
 			</div>
 			<Footer>
 			<p>How are we doing? Give us feedback on this page.</p>
+			<h2>Sign up for REI emails</h2>
+			<p>Co-op offers, events & cool new gear</p>
+				Email
+			<form>
+				<input type='text'></input><SignUpButton>Sign me up!</SignUpButton>
+			</form>
 			</Footer>
+			<BlackBox>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+			</BlackBox>
     </div>
   );
 }
+
+const BlackBox = styled.div`
+background-color: black;
+color: white;
+width: 110%;
+display: grid;
+grid-template-columns: repeat(6, 300px);
+grid-template-rows: repeat(2, 100px);
+grid-gap: 30px;
+padding-left: 50px;
+`;
+
+const SignUpButton = styled.button`
+color: white;
+border: none;
+background-color: black;
+font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
+margin-left: 5px;
+font-size: 14px;
+`;
 
 const Wrapper = styled.section`
 margin: auto;
