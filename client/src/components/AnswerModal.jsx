@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
+import Helpful from './Helpful.jsx';
+
 import styled from 'styled-components';
 
 import moment from 'moment';
 
-function AnswerModal({ show, setShow, question }) {
+function AnswerModal({ show, setShow, question, incrementHelpfulCount }) {
 	if (!show) {
 		return null;
 	}
@@ -17,6 +19,7 @@ function AnswerModal({ show, setShow, question }) {
 					<Title>Post answer</Title>
 					<div><User>{question.user} &#183; <Time>{moment(question.created_at).startOf('hour').fromNow()}</Time></User></div>
 			<div><Body>{question.question_body}</Body></div>
+			<Help><Helpful question={question} incrementHelpfulCount={incrementHelpfulCount}/></Help>
 			<InputBox>
 							Answer
 						<form>
@@ -31,6 +34,11 @@ function AnswerModal({ show, setShow, question }) {
 		</div>
 	);
 };
+
+const Help = styled.div`
+margin-left: 18px;
+margin-top: 20px;
+`;
 
 const Title = styled.div`
 font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
@@ -98,6 +106,7 @@ border: none;
 padding-top: 1px;
 font-weight: 600;
 margin-left: 900px;
+cursor: pointer;
 `;
 
 const PostButton = styled.button`

@@ -10,12 +10,13 @@ import DropDown from './DropDown.jsx';
 
 import LoadMore from './LoadMore.jsx';
 
-import QuestionModal from './AnswerModal.jsx';
+import AskQuestion from './AskQuestion.jsx';
 
 function App() {
 
 	const [questions, setQuestions] = useState([]);
 	const [numQuestions, setNumQuestions] = useState(5);
+	const [asking, setAsking] = useState(false);
 	// const [sort, setSort] = useState(null);
 	
 	const getQuestions = () => {
@@ -38,7 +39,7 @@ function App() {
     <div>
       <div>
         <Wrapper>
-            <QuestionButton>Ask a question</QuestionButton>
+            <QuestionButton onClick={() => setAsking(true)}>Ask a question</QuestionButton>
           <div>
             <Title>
 							<div>Questions & Answers</div>
@@ -53,6 +54,7 @@ function App() {
       <div>
       <LoadMore numQuestions={numQuestions} setNumQuestions={setNumQuestions} getQuestions={getQuestions}/>
 			</div>
+			<AskQuestion asking={asking} setAsking={setAsking}/>
 			<Footer>
 			<p>How are we doing? Give us feedback on this page.</p>
 			<h2>Sign up for REI emails</h2>
