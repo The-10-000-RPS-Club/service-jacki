@@ -10,24 +10,24 @@ import DropDown from './DropDown.jsx';
 
 import LoadMore from './LoadMore.jsx';
 
-
+import QuestionModal from './AnswerModal.jsx';
 
 function App() {
 
 	const [questions, setQuestions] = useState([]);
 	const [numQuestions, setNumQuestions] = useState(5);
 	// const [sort, setSort] = useState(null);
-
+	
 	const getQuestions = () => {
 		axios.get('/api/products/questions')
-			.then((data) => setQuestions(questions.concat(data.data)))
-			.catch((err) => (err));
+		.then((data) => setQuestions(questions.concat(data.data)))
+		.catch((err) => (err));
 	};
 	
 	const incrementHelpfulCount = (quesId, ansId, option) => {
 		axios.patch(`/api/products/questions/${quesId}/${ansId}/${option}`)
-			.then((data) => console.log(`${option} count increased`))
-			.catch((err) => (err));
+		.then((data) => console.log(`${option} count increased`))
+		.catch((err) => (err));
 	};
 
 	useEffect(() => {
@@ -53,6 +53,9 @@ function App() {
       <div>
       <LoadMore numQuestions={numQuestions} setNumQuestions={setNumQuestions} getQuestions={getQuestions}/>
 			</div>
+			<Footer>
+			<p>How are we doing? Give us feedback on this page.</p>
+			</Footer>
     </div>
   );
 }
@@ -88,6 +91,16 @@ cursor: pointer;
 &:hover {
 	background-color: #2B455C;
 }
+`;
+
+const Footer = styled.div`
+margin: auto;
+text-align: center;
+width: 75%;
+position: relative;
+font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
+border-bottom: 1px solid grey;
+font-size: 14px;
 `;
 
 export default App;

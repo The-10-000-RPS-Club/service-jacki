@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import moment from 'moment';
 
@@ -8,6 +8,31 @@ import Answer from './Answer.jsx';
 
 import Helpful from './Helpful.jsx';
 
+import AnswerModal from './AnswerModal.jsx';
+
+const Question = ({incrementHelpfulCount, question}) => {
+	const [show, setShow] = useState(false);
+
+	const showModal = () => {
+		setShow(true);
+	};
+
+	return(
+	<div>
+	<Wrapper>
+	<div>
+	<AnswerNumber>{question.answers.length}<AnswerText>answers</AnswerText></AnswerNumber>
+		<div><User>{question.user} &#183; <QuestionTime>{moment(question.created_at).startOf('hour').fromNow()}</QuestionTime></User></div>
+		<QuestionBody><p>{question.question_body}</p></QuestionBody>
+		<AnswerButton onClick={() => showModal()}>Answer the question</AnswerButton>
+	</div>
+	<Answer question={question} />
+	<Helpful question={question} incrementHelpfulCount={incrementHelpfulCount}/>
+	</Wrapper>
+		<AnswerModal show={show} setShow={setShow} question={question}/>
+	</div>
+	);
+};
 
 const Wrapper = styled.section`
 	margin: auto;
@@ -19,7 +44,6 @@ const Wrapper = styled.section`
 	padding-bottom: 10 px;
 	margin-bottom: 10px;
 `;
-
 const AnswerNumber = styled.section`
 	float: right;
 	text-align: center;
@@ -62,19 +86,5 @@ font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 font-size 14px;
 `;
 
-const Question = ({incrementHelpfulCount, question}) => (
-	<div>
-	<Wrapper>
-	<div>
-	<AnswerNumber>{question.answers.length}<AnswerText>answers</AnswerText></AnswerNumber>
-		<div><User>{question.user} &#183; <QuestionTime>{moment(question.created_at).startOf('hour').fromNow()}</QuestionTime></User></div>
-		<QuestionBody><p>{question.question_body}</p></QuestionBody>
-		<AnswerButton>Answer the question</AnswerButton>
-	</div>
-	<Answer question={question} />
-	<Helpful question={question} incrementHelpfulCount={incrementHelpfulCount}/>
-	</Wrapper>
-	</div>
-);
 
 export default Question;

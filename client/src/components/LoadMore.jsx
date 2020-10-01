@@ -28,6 +28,7 @@ padding-bottom: 5px;
 display: flex;
 justify-content: center;
 margin: auto;
+margin-bottom: 150px;
 width: 20%;
 &:hover {
 	cursor: pointer;
