@@ -13,7 +13,7 @@ const QuestionList = ({ questions, incrementHelpfulCount }) => (
 
 const Wrapper = styled.section`
 margin: auto;
-width: 55%;
+width: 52%;
 position: relative;
 font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 font-size: 16px;

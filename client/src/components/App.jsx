@@ -59,7 +59,7 @@ function App() {
 
 const Wrapper = styled.section`
 margin: auto;
-width: 53%;
+width: 52%;
 position: relative;
 padding: 10px;
 font-family: Stuart, Georgia, serif;
