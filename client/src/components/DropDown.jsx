@@ -1,17 +1,57 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import styled from 'styled-components';
 
 import Helpful from './Helpful.jsx';
 
-function DropDown() {
+function DropDown({ questions, setQuestions }) {
 	const [dropDownContent] = useState(['Newest questions', 'Newest answers', 'Most answered', 'Answers needed', 'Most helpful answers']);
+	const [selected, setSelected] = useState('-select-');
+
+	function compareValues(key, order = 'asc') {
+		return function innerSort(a, b) {
+			if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+				return 0;
+			}
+
+			const varA = (typeof a[key] === 'string')
+				? a[key].toUpperCase() : a[key];
+			const varB = (typeof b[key] === 'string')
+				? b[key].toUpperCase() : b[key];
+	
+			let comparison = 0;
+			if (varA > varB) {
+				comparison = 1;
+			} else if (varA < varB) {
+				comparison = -1;
+			}
+			return (
+				(order === 'desc') ? (comparison * -1) : comparison
+			);
+		};
+	}
+
+	const newestQuestions = questions.sort(compareValues('createdAt'));
+
+	useEffect(() => {
+    setSelected(selected);
+  }, [selected]);
+
+// if (selected === '-select-') {
+// 	setQuestions(questions);
+// }
+// 	else if (selected === 'Newest questions') {
+// 		setQuestions(newestQuestions);
+// 	}
+
+//want to merge to mnaster
+
 	return (
 		<div>
 		<NavbarDropdown>
-		<p>Sort by: {dropDownContent[0]} &#x25BE;</p>
+		<p>Sort by: {selected} &#x25BE;</p>
 		<NavbarDropdownContent>
-			<SingleDropdownOption><div>{dropDownContent[0]}</div></SingleDropdownOption>
+			<SingleDropdownOption onClick={setSelected(dropDownContent[0])}><div>{dropDownContent[0]}</div></SingleDropdownOption>
 				<p></p>
 				<SingleDropdownOption><div>{dropDownContent[1]}</div></SingleDropdownOption>
 				<p></p>

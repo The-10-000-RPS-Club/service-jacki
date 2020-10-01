@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import moment from 'moment';
 
@@ -8,10 +8,45 @@ import Answer from './Answer.jsx';
 
 import Helpful from './Helpful.jsx';
 
+import AnswerModal from './AnswerModal.jsx';
+
+const Question = ({incrementHelpfulCount, question}) => {
+	const [show, setShow] = useState(false);
+
+	const showModal = () => {
+		setShow(true);
+	};
+
+	return(
+	<div>
+	<Wrapper>
+	<div>
+	<AnswerNumber>{question.answers.length}<AnswerText>answers</AnswerText></AnswerNumber>
+		<div><User>{question.user} &#183; <QuestionTime>{moment(question.created_at).startOf('hour').fromNow()}</QuestionTime></User></div>
+		<QuestionBody><p>{question.question_body}</p></QuestionBody>
+		<AnswerButton onClick={() => showModal()}>Answer the question</AnswerButton>
+	</div>
+	<Answer question={question} />
+	<Helpful question={question} incrementHelpfulCount={incrementHelpfulCount}/>
+	</Wrapper>
+		<AnswerModal show={show} setShow={setShow} question={question}/>
+		{show ? <PageMask /> : null}
+	</div>
+	);
+};
+
+const PageMask = styled.div`
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+`;
 
 const Wrapper = styled.section`
 	margin: auto;
-	width: 55%;
+	width: 52%;
 	border-top: 1px solid grey;
 	padding: 10px;
 	position: relative;
@@ -19,7 +54,6 @@ const Wrapper = styled.section`
 	padding-bottom: 10 px;
 	margin-bottom: 10px;
 `;
-
 const AnswerNumber = styled.section`
 	float: right;
 	text-align: center;
@@ -35,6 +69,7 @@ const AnswerButton = styled.button`
 	border-radius: 2px;
 	margin-bottom: 40px;
 	margin-left: 0px
+	cursor: pointer;
 `;
 
 const QuestionTime = styled.button`
@@ -54,10 +89,6 @@ font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 font-size: 18px;
 font-weight: 700;
 margin-bottom: 40px;
-&:hover {
-	cursor: pointer;
-	text-decoration: underline;
-}
 `;
 
 const AnswerText = styled.div`
@@ -65,19 +96,5 @@ font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 font-size 14px;
 `;
 
-const Question = ({incrementHelpfulCount, question}) => (
-	<div>
-	<Wrapper>
-	<div>
-	<AnswerNumber><p>{question.answers.length}</p><AnswerText><p>answers</p></AnswerText></AnswerNumber>
-		<div><User>{question.user} &#183; <QuestionTime>{moment(question.created_at).startOf('hour').fromNow()}</QuestionTime></User></div>
-		<QuestionBody><p>{question.question_body}</p></QuestionBody>
-		<AnswerButton>Answer the question</AnswerButton>
-	</div>
-	<Answer question={question} />
-	<Helpful question={question} incrementHelpfulCount={incrementHelpfulCount}/>
-	</Wrapper>
-	</div>
-);
 
 export default Question;

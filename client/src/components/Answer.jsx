@@ -9,7 +9,6 @@ import Helpful from './Helpful.jsx';
 const Answer = ({ question }) => {
 	return (
 		<div>
-		
 		<div><User>{question.answers[0].user} &#183; <QuestionTime>{moment(question.answers[0].created_at).startOf('hour').fromNow()}</QuestionTime></User></div>
 		<AnswerBody><p>{question.answers[0].body}</p></AnswerBody>
 		</div>
@@ -18,7 +17,7 @@ const Answer = ({ question }) => {
 
 const Wrapper = styled.section`
 	margin: auto;
-	width: 55%;
+	width: 52%;
 	border-top: 1px solid grey;
 	padding: 10px;
 	position: relative;

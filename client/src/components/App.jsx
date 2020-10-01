@@ -10,42 +10,40 @@ import DropDown from './DropDown.jsx';
 
 import LoadMore from './LoadMore.jsx';
 
-
+import QuestionModal from './AnswerModal.jsx';
 
 function App() {
 
 	const [questions, setQuestions] = useState([]);
 	const [numQuestions, setNumQuestions] = useState(5);
 	// const [sort, setSort] = useState(null);
-
+	
 	const getQuestions = () => {
 		axios.get('/api/products/questions')
-			.then((data) => setQuestions(questions.concat(data.data)))
-			.catch((err) => (err));
+		.then((data) => setQuestions(questions.concat(data.data)))
+		.catch((err) => (err));
 	};
 	
 	const incrementHelpfulCount = (quesId, ansId, option) => {
 		axios.patch(`/api/products/questions/${quesId}/${ansId}/${option}`)
-			.then((data) => console.log(`${option} count increased`))
-			.catch((err) => (err));
+		.then((data) => console.log(`${option} count increased`))
+		.catch((err) => (err));
 	};
 
 	useEffect(() => {
     getQuestions();
 	}, [numQuestions]);
 	
-
-console.log(numQuestions, questions.length);
   return (
     <div>
       <div>
         <Wrapper>
-          <div>
             <QuestionButton>Ask a question</QuestionButton>
+          <div>
             <Title>
 							<div>Questions & Answers</div>
 							</Title>
-           <DropDown />
+           <DropDown questions={questions} setQuestions={setQuestions} />
           </div>
         </Wrapper>
         <div>
@@ -55,14 +53,68 @@ console.log(numQuestions, questions.length);
       <div>
       <LoadMore numQuestions={numQuestions} setNumQuestions={setNumQuestions} getQuestions={getQuestions}/>
 			</div>
+			<Footer>
+			<p>How are we doing? Give us feedback on this page.</p>
+			<h2>Sign up for REI emails</h2>
+			<p>Co-op offers, events & cool new gear</p>
+				Email
+			<form>
+				<input type='text'></input><SignUpButton>Sign me up!</SignUpButton>
+			</form>
+			</Footer>
+			<BlackBox>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+				<p>Other Stuff</p>
+			</BlackBox>
     </div>
   );
 }
 
-const Wrapper = styled.section`
+const BlackBox = styled.div`
+background-color: black;
+color: white;
+width: 110%;
+display: grid;
+grid-template-columns: repeat(6, 300px);
+grid-template-rows: repeat(2, 100px);
+grid-gap: 30px;
+padding-left: 50px;
+`;
 
+const SignUpButton = styled.button`
+color: white;
+border: none;
+background-color: black;
+font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
+margin-left: 5px;
+font-size: 14px;
+`;
+
+const Wrapper = styled.section`
 margin: auto;
-width: 55%;
+width: 52%;
 position: relative;
 padding: 10px;
 font-family: Stuart, Georgia, serif;
@@ -75,17 +127,32 @@ padding 10px;
 position: relative;
 padding-bottom: 30px;
 padding-left: 0px;
+width: 300px;
 `;
 
 const QuestionButton = styled.button`
-background-color: #006699;
+background-color: #3973A1;
 color: white;
-float: right;
 border: none;
-padding: 10px;
-border-radius: 2px;
+float: right;
+padding: 13px;
+border-radius: 3px;
 font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 font-size: 16px;
+cursor: pointer;
+&:hover {
+	background-color: #2B455C;
+}
+`;
+
+const Footer = styled.div`
+margin: auto;
+text-align: center;
+width: 75%;
+position: relative;
+font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
+border-bottom: 1px solid grey;
+font-size: 14px;
 `;
 
 export default App;

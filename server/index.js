@@ -5,8 +5,6 @@ const bodyParser = require('body-parser');
 
 const path = require('path');
 
-const extend = require('extend');
-
 const Questions = require('../database/Question.js');
 
 const app = express();
@@ -37,18 +35,15 @@ app.post('/api/products/questions/:product_id', (req, res) => {
     question_body: req.body.question_body,
   });
   newQuestion.save()
-    .then((data) => res.status(201).send(data))
+    .then((data) => res.send(data))
     .catch((err) => res.send(err));
 });
-
-/********* IF TIME ALLOWS **********/
 
 app.patch('/api/products/questions/:question_id/:answer_id/:option', (req, res) => {
   const quesId = req.params.question_id;
   const id = req.params.answer_id;
   const filter = { question_id: quesId };
   const { option } = req.params;
-  console.log(typeof ansId, typeof quesId, typeof option);
   Questions.find(filter)
     .then((question) => {
       const subDoc = question[0].answers.id(id);
@@ -69,7 +64,7 @@ app.patch('/api/products/questions/:question_id/:answer_id/:option', (req, res) 
     })
     .then((data) => res.send(data))
     // save parent question not child
-    .catch((err) => console.log(err));
+    .catch((err) => res.send(err));
 });
 
 app.listen(PORT, () => {
