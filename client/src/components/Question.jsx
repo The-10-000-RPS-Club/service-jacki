@@ -29,7 +29,7 @@ const Question = ({incrementHelpfulCount, question}) => {
 	<Answer question={question} />
 	<Helpful question={question} incrementHelpfulCount={incrementHelpfulCount}/>
 	</Wrapper>
-		<AnswerModal show={show} setShow={setShow} question={question}/>
+		<AnswerModal show={show} setShow={setShow} question={question} incrementHelpfulCount={incrementHelpfulCount}/>
 		{show ? <PageMask /> : null}
 	</div>
 	);
