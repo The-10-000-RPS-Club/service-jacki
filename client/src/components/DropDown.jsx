@@ -38,7 +38,8 @@ background-color: white;
 border: 1px solid black;
 min-width: 160px;
 box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0, 2);
-z-index: 1;
+z-index: 9;
+cursor: pointer;
 font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 `;
 
@@ -46,6 +47,9 @@ const NavbarDropdown = styled.div`
 position: relative;
 display: inline-block;
 float: right;
+padding-bottom: 5px;
+cursor: pointer;
+z-index: 9;
 &:hover ${NavbarDropdownContent} {
 	display: inline-block;
 }
@@ -55,7 +59,7 @@ font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 const SingleDropdownOption = styled.div`
 border: 10px solid white;
 &:hover {
-	background: darkslategray;
+	background: #2B455C;;
 	color: white;
 	cursor: pointer;
 	border: 10px solid darkslategrey;
