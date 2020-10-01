@@ -30,9 +30,19 @@ const Question = ({incrementHelpfulCount, question}) => {
 	<Helpful question={question} incrementHelpfulCount={incrementHelpfulCount}/>
 	</Wrapper>
 		<AnswerModal show={show} setShow={setShow} question={question}/>
+		{show ? <PageMask /> : null}
 	</div>
 	);
 };
+
+const PageMask = styled.div`
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+`;
 
 const Wrapper = styled.section`
 	margin: auto;

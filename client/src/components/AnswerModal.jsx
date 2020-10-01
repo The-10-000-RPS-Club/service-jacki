@@ -29,13 +29,15 @@ function AnswerModal({ show, setShow, question }) {
 const Modal = styled.div`
 width: 800px;
 height: 500px;
+margin:0 auto;
+display:table;
 position: absolute;
-left: 50%
-top: 50%;
+left: 0;
+right:0;
+top: 35%; 
 background: white;
 border: 1px solid;
 tansition: 2s ease-out;
-box-shadow: -2rem 2rem grey;
 filter: blur(0);
 transform: scale(1);
 opacity: 5;
