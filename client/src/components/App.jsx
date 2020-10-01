@@ -80,7 +80,6 @@ background-color: #3973A1;
 color: white;
 border: none;
 float: right;
-z-index: 9;
 padding: 13px;
 border-radius: 3px;
 font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;

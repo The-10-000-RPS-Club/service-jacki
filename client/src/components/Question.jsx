@@ -35,9 +35,7 @@ const AnswerButton = styled.button`
 	border-radius: 2px;
 	margin-bottom: 40px;
 	margin-left: 0px
-	&:hover {
-		cursor: pointer;
-  }
+	cursor: pointer;
 `;
 
 const QuestionTime = styled.button`
