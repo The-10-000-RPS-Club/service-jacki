@@ -37,12 +37,12 @@ function DropDown({ questions, setQuestions }) {
     setSelected(selected);
   }, [selected]);
 
-if (selected === '-select-') {
-	setQuestions(questions);
-}
-	else if (selected === 'Newest questions') {
-		setQuestions(newestQuestions);
-	}
+// if (selected === '-select-') {
+// 	setQuestions(questions);
+// }
+// 	else if (selected === 'Newest questions') {
+// 		setQuestions(newestQuestions);
+// 	}
 
 	return (
 		<div>
