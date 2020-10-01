@@ -43,7 +43,7 @@ function App() {
             <Title>
 							<div>Questions & Answers</div>
 							</Title>
-           <DropDown />
+           <DropDown questions={questions} setQuestions={setQuestions} />
           </div>
         </Wrapper>
         <div>
