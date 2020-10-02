@@ -4,16 +4,17 @@ exports[`A suite example using Snapshot renders App component correctly 1`] = `
 <div>
   <div>
     <section
-      className="sc-iemXMA jTBmQy"
+      className="sc-gXfWUo fbgvgK"
     >
+      <button
+        className="sc-ciSmjq fGvxWW"
+        onClick={[Function]}
+      >
+        Ask a question
+      </button>
       <div>
-        <button
-          className="sc-hHEjAm fYAvwg"
-        >
-          Ask a question
-        </button>
         <div
-          className="sc-dIvqjp hXnLBS"
+          className="sc-cBoprd ebejrs"
         >
           <div>
             Questions & Answers
@@ -21,50 +22,51 @@ exports[`A suite example using Snapshot renders App component correctly 1`] = `
         </div>
         <div>
           <div
-            className="sc-fnVYJo dMTIYI"
+            className="sc-iwaifL gUOPVN"
           >
             <p>
               Sort by: 
-              Newest questions
+              -select-
                ▾
             </p>
             <div
-              className="sc-hBMVcZ jYRonn"
+              className="sc-bCwgka kfElgi"
             >
               <div
-                className="sc-fFSRdu doA-dPq"
+                className="sc-cxNIbT ibZciV"
+                onClick={[Function]}
               >
                 <div>
                   Newest questions
                 </div>
               </div>
-              <p />
               <div
-                className="sc-fFSRdu doA-dPq"
+                className="sc-cxNIbT ibZciV"
+                onClick={[Function]}
               >
                 <div>
                   Newest answers
                 </div>
               </div>
-              <p />
               <div
-                className="sc-fFSRdu doA-dPq"
+                className="sc-cxNIbT ibZciV"
+                onClick={[Function]}
               >
                 <div>
                   Most answered
                 </div>
               </div>
-              <p />
               <div
-                className="sc-fFSRdu doA-dPq"
+                className="sc-cxNIbT ibZciV"
+                onClick={[Function]}
               >
                 <div>
                   Answers needed
                 </div>
               </div>
-              <p />
               <div
-                className="sc-fFSRdu doA-dPq"
+                className="sc-cxNIbT ibZciV"
+                onClick={[Function]}
               >
                 <div>
                   Most helpful answers
@@ -78,7 +80,7 @@ exports[`A suite example using Snapshot renders App component correctly 1`] = `
     <div>
       <div>
         <section
-          className="sc-ksluoS bTRPFs"
+          className="sc-fKgIGh keGHJm"
         >
           <p>
             1-
@@ -93,11 +95,111 @@ exports[`A suite example using Snapshot renders App component correctly 1`] = `
   </div>
   <div>
     <button
-      className="sc-bkbjAj gOXpHr"
+      className="sc-lmgQde kinQhw"
       onClick={[Function]}
     >
       Load More
     </button>
+  </div>
+  <div
+    className="sc-jcwofb cOCcZx"
+  >
+    <p>
+      How are we doing? Give us feedback on this page.
+    </p>
+    <h2>
+      Sign up for REI emails
+    </h2>
+    <p>
+      Co-op offers, events & cool new gear
+    </p>
+    Email
+    <form>
+      <input
+        type="text"
+      />
+      <button
+        className="sc-hiKfjK eprGiy"
+      >
+        Sign me up!
+      </button>
+    </form>
+  </div>
+  <div
+    className="sc-jJMGHv dyzYGl"
+  >
+    <p>
+      Other Stuff
+    </p>
+    <p>
+      Other Stuff
+    </p>
+    <p>
+      Other Stuff
+    </p>
+    <p>
+      Other Stuff
+    </p>
+    <p>
+      Other Stuff
+    </p>
+    <p>
+      Other Stuff
+    </p>
+    <p>
+      Other Stuff
+    </p>
+    <p>
+      Other Stuff
+    </p>
+    <p>
+      Other Stuff
+    </p>
+    <p>
+      Other Stuff
+    </p>
+    <p>
+      Other Stuff
+    </p>
+    <p>
+      Other Stuff
+    </p>
+    <p>
+      Other Stuff
+    </p>
+    <p>
+      Other Stuff
+    </p>
+    <p>
+      Other Stuff
+    </p>
+    <p>
+      Other Stuff
+    </p>
+    <p>
+      Other Stuff
+    </p>
+    <p>
+      Other Stuff
+    </p>
+    <p>
+      Other Stuff
+    </p>
+    <p>
+      Other Stuff
+    </p>
+    <p>
+      Other Stuff
+    </p>
+    <p>
+      Other Stuff
+    </p>
+    <p>
+      Other Stuff
+    </p>
+    <p>
+      Other Stuff
+    </p>
   </div>
 </div>
 `;
@@ -162,7 +264,7 @@ exports[`renders Dropdown component correctly 1`] = `
 exports[`renders QuestionList component correctly 1`] = `
 <div>
   <section
-    className="sc-ksluoS bTRPFs"
+    className="sc-fKgIGh keGHJm"
   >
     <p>
       1-
@@ -174,45 +276,42 @@ exports[`renders QuestionList component correctly 1`] = `
   </section>
   <div>
     <section
-      className="sc-pNWxx doEPKv"
+      className="sc-fFSRdu lTHh"
     >
       <div>
         <section
-          className="sc-jrsJCI jKdWQN"
+          className="sc-bkbjAj KBlYw"
         >
-          <p>
-            1
-          </p>
+          1
           <div
-            className="sc-bqGHjH gpPyZL"
+            className="sc-kfYqjs jVfLBx"
           >
-            <p>
-              answers
-            </p>
+            answers
           </div>
         </section>
         <div>
           <div
-            className="sc-crzoUp fyvLPQ"
+            className="sc-hHEjAm hmcqje"
           >
             BobbyB
              · 
             <button
-              className="sc-iqAbSa cSamcM"
+              className="sc-dIvqjp dOeeHJ"
             >
-              Invalid date
+              43 minutes ago
             </button>
           </div>
         </div>
         <div
-          className="sc-dIsAE kbqA-dx"
+          className="sc-dlMBXb fghCqn"
         >
           <p>
             Does this product fit both men and women?
           </p>
         </div>
         <button
-          className="sc-kEqYlL byYNjL"
+          className="sc-iemXMA kQNakb"
+          onClick={[Function]}
         >
           Answer the question
         </button>
@@ -227,7 +326,7 @@ exports[`renders QuestionList component correctly 1`] = `
             <button
               className="sc-eCApGN fooWmP"
             >
-              Invalid date
+              43 minutes ago
             </button>
           </div>
         </div>
@@ -242,23 +341,23 @@ exports[`renders QuestionList component correctly 1`] = `
       <p>
         Helpful? 
         <button
-          className="sc-bdnylx jJAktm yes"
+          className="sc-bdnylx bGopLz yes"
           onClick={[Function]}
         >
-          yes: 
+          Yes · 
           0
         </button>
          
         <button
-          className="sc-bdnylx jJAktm no"
+          className="sc-bdnylx bGopLz no"
           onClick={[Function]}
         >
-          no: 
+          No · 
           1
         </button>
          
         <button
-          className="sc-bdnylx jJAktm"
+          className="sc-bdnylx bGopLz"
         >
           Report as inappropriate
         </button>
@@ -267,45 +366,42 @@ exports[`renders QuestionList component correctly 1`] = `
   </div>
   <div>
     <section
-      className="sc-pNWxx doEPKv"
+      className="sc-fFSRdu lTHh"
     >
       <div>
         <section
-          className="sc-jrsJCI jKdWQN"
+          className="sc-bkbjAj KBlYw"
         >
-          <p>
-            2
-          </p>
+          2
           <div
-            className="sc-bqGHjH gpPyZL"
+            className="sc-kfYqjs jVfLBx"
           >
-            <p>
-              answers
-            </p>
+            answers
           </div>
         </section>
         <div>
           <div
-            className="sc-crzoUp fyvLPQ"
+            className="sc-hHEjAm hmcqje"
           >
             Rachel098
              · 
             <button
-              className="sc-iqAbSa cSamcM"
+              className="sc-dIvqjp dOeeHJ"
             >
-              an hour ago
+              43 minutes ago
             </button>
           </div>
         </div>
         <div
-          className="sc-dIsAE kbqA-dx"
+          className="sc-dlMBXb fghCqn"
         >
           <p>
             How durable is this?
           </p>
         </div>
         <button
-          className="sc-kEqYlL byYNjL"
+          className="sc-iemXMA kQNakb"
+          onClick={[Function]}
         >
           Answer the question
         </button>
@@ -320,7 +416,7 @@ exports[`renders QuestionList component correctly 1`] = `
             <button
               className="sc-eCApGN fooWmP"
             >
-              an hour ago
+              43 minutes ago
             </button>
           </div>
         </div>
@@ -335,23 +431,23 @@ exports[`renders QuestionList component correctly 1`] = `
       <p>
         Helpful? 
         <button
-          className="sc-bdnylx jJAktm yes"
+          className="sc-bdnylx bGopLz yes"
           onClick={[Function]}
         >
-          yes: 
+          Yes · 
           2
         </button>
          
         <button
-          className="sc-bdnylx jJAktm no"
+          className="sc-bdnylx bGopLz no"
           onClick={[Function]}
         >
-          no: 
+          No · 
           0
         </button>
          
         <button
-          className="sc-bdnylx jJAktm"
+          className="sc-bdnylx bGopLz"
         >
           Report as inappropriate
         </button>

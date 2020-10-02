@@ -10,16 +10,26 @@ function AskQuestion({ asking, setAsking }) {
 		return (
 			<div>
 				<Wrapper>
-					<div>Ask a question</div>
+					<Title>Ask a Question</Title>
 			Question* Maximum of 255 emojis, no cats
 			<form>
-						<textarea />
-			Nickname*
+				<Text>
+						<textarea></textarea>
+					</Text>
+						<Form>
+							<div>
+								Nickname*
 			<input type='text' placeholder='Ex: blahMan'></input>
-			Loction
+							</div>
+							<div>
+								Loction
 			<input type='text' placeholder='Ex: Washington-on-the-Brazos, TX'></input>
-			Email*
+							</div>
+							<div>
+								Email*
 			<input type='text' placeholder='Ex: blahMan@whatever.com'></input>
+							</div>
+						</Form>
 					</form>
 					<PostButton>Post question</PostButton>
 				</Wrapper>
@@ -27,6 +37,29 @@ function AskQuestion({ asking, setAsking }) {
 		);
 	}
 }
+
+const Text = styled.div`
+
+`;
+
+const FormBody = styled.div`
+
+`;
+
+const Form = styled.div`
+display: grid;
+grid-template-columns: repeat(2, 200px);
+grid-template-rows: repeat(1, 100px);
+grid-gap: 10px;
+`;
+
+const Title = styled.div`
+font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
+font-size: 23px;
+margin-left: 10px;
+margin-bottom: 50px;
+font-weight: 400;
+`;
 
 const Wrapper = styled.div`
 margin: auto;

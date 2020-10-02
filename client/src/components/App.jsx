@@ -17,7 +17,13 @@ function App() {
 	const [questions, setQuestions] = useState([]);
 	const [numQuestions, setNumQuestions] = useState(5);
 	const [asking, setAsking] = useState(false);
-	// const [sort, setSort] = useState(null);
+	const [sort, setSort] = useState(null);
+
+	const getSortedQuestions = (sort) => {
+		axios.get(`/api/products/questions/sort/${sort}`)
+			.then((sorted) => setQuestions(sorted))
+			.catch((err) => (err));
+	}
 	
 	const getQuestions = () => {
 		axios.get('/api/products/questions')
@@ -34,6 +40,10 @@ function App() {
 	useEffect(() => {
     getQuestions();
 	}, [numQuestions]);
+
+	// useEffect(() => {
+	// 	getSortedQuestions();
+	// }, [sort]);
 	
   return (
     <div>
@@ -47,7 +57,7 @@ function App() {
             <Title>
 							<div>Questions & Answers</div>
 							</Title>
-           <DropDown questions={questions} setQuestions={setQuestions} />
+           <DropDown questions={questions} setQuestions={setQuestions} sort={sort} setSort={setSort} />
           </div>
         </Wrapper>
         <div>
@@ -55,7 +65,7 @@ function App() {
         </div>
       </div>
       <div>
-      <LoadMore numQuestions={numQuestions} setNumQuestions={setNumQuestions} getQuestions={getQuestions}/>
+      <LoadMore numQuestions={numQuestions} setNumQuestions={setNumQuestions} />
 			</div>
 			<AskQuestion asking={asking} setAsking={setAsking}/>
 			<Footer>

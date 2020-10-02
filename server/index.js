@@ -28,6 +28,17 @@ app.get('/api/products/questions/:question_id', (req, res) => {
     .catch((err) => res.send(err));
 });
 
+app.get('/api/products/questions/sort/:sort', (req, res) => {
+  let filter;
+  const sorter = req.params.sort;
+  if (sorter === 'Newest questions') {
+    filter = 'created_at';
+  }
+  Questions.find({}).sort(filter).limit(5).exec()
+    .then((results) => res.send(results))
+    .catch((err) => res.send(err));
+});
+
 app.post('/api/products/questions/:product_id', (req, res) => {
   const newQuestion = new Questions({
     product_id: req.params.id,
@@ -54,12 +65,12 @@ app.patch('/api/products/questions/:question_id/:answer_id/:option', (req, res) 
         subDoc.set({ helpful: { no: count + 1 } });
       }
       question[0].save((err, newObj) => {
-          if (err) {
-            console.log(err);
-          } else {
-            console.log('succcess', newObj);
-          }
-        });
+        if (err) {
+          console.log(err);
+        } else {
+          console.log('succcess', newObj);
+        }
+      });
       return question;
     })
     .then((data) => res.send(data))

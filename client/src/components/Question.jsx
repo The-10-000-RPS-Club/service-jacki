@@ -82,6 +82,7 @@ const User = styled.div`
 	font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 	font-size: 15px;
 	font-weight: 700;
+	margin-left: 6px;
 `;
 
 const QuestionBody = styled.div`
