@@ -207,50 +207,50 @@ exports[`A suite example using Snapshot renders App component correctly 1`] = `
 exports[`renders Dropdown component correctly 1`] = `
 <div>
   <div
-    className="sc-fnVYJo dMTIYI"
+    className="sc-iwaifL gUOPVN"
   >
     <p>
       Sort by: 
-      Newest questions
        ▾
     </p>
     <div
-      className="sc-hBMVcZ jYRonn"
+      className="sc-bCwgka kfElgi"
     >
       <div
-        className="sc-fFSRdu doA-dPq"
+        className="sc-cxNIbT ibZciV"
+        onClick={[Function]}
       >
         <div>
           Newest questions
         </div>
       </div>
-      <p />
       <div
-        className="sc-fFSRdu doA-dPq"
+        className="sc-cxNIbT ibZciV"
+        onClick={[Function]}
       >
         <div>
           Newest answers
         </div>
       </div>
-      <p />
       <div
-        className="sc-fFSRdu doA-dPq"
+        className="sc-cxNIbT ibZciV"
+        onClick={[Function]}
       >
         <div>
           Most answered
         </div>
       </div>
-      <p />
       <div
-        className="sc-fFSRdu doA-dPq"
+        className="sc-cxNIbT ibZciV"
+        onClick={[Function]}
       >
         <div>
           Answers needed
         </div>
       </div>
-      <p />
       <div
-        className="sc-fFSRdu doA-dPq"
+        className="sc-cxNIbT ibZciV"
+        onClick={[Function]}
       >
         <div>
           Most helpful answers
@@ -259,6 +259,33 @@ exports[`renders Dropdown component correctly 1`] = `
     </div>
   </div>
 </div>
+`;
+
+exports[`renders Helpful component correctly 1`] = `
+<p>
+  Helpful? 
+  <button
+    className="sc-bdnylx bGopLz yes"
+    onClick={[Function]}
+  >
+    Yes · 
+    0
+  </button>
+   
+  <button
+    className="sc-bdnylx bGopLz no"
+    onClick={[Function]}
+  >
+    No · 
+    1
+  </button>
+   
+  <button
+    className="sc-bdnylx bGopLz"
+  >
+    Report as inappropriate
+  </button>
+</p>
 `;
 
 exports[`renders QuestionList component correctly 1`] = `
@@ -298,7 +325,7 @@ exports[`renders QuestionList component correctly 1`] = `
             <button
               className="sc-dIvqjp dOeeHJ"
             >
-              43 minutes ago
+              17 minutes ago
             </button>
           </div>
         </div>
@@ -326,7 +353,7 @@ exports[`renders QuestionList component correctly 1`] = `
             <button
               className="sc-eCApGN fooWmP"
             >
-              43 minutes ago
+              17 minutes ago
             </button>
           </div>
         </div>
@@ -388,7 +415,7 @@ exports[`renders QuestionList component correctly 1`] = `
             <button
               className="sc-dIvqjp dOeeHJ"
             >
-              43 minutes ago
+              17 minutes ago
             </button>
           </div>
         </div>
@@ -416,7 +443,7 @@ exports[`renders QuestionList component correctly 1`] = `
             <button
               className="sc-eCApGN fooWmP"
             >
-              43 minutes ago
+              17 minutes ago
             </button>
           </div>
         </div>
