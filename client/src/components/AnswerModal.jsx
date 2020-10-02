@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from 'react';
-
+import React from 'react';
+import styled from 'styled-components';
+import moment from 'moment';
 import Helpful from './Helpful.jsx';
 
-import styled from 'styled-components';
-
-import moment from 'moment';
-
 function AnswerModal({ show, setShow, question, incrementHelpfulCount }) {
-	if (!show) {
-		return null;
-	}
-	return (
+  if (!show) {
+    return null;
+  }
+  return (
 		<div>
 			<Modal>
 				<CloseModal onClick={() => setShow(false)}>x</CloseModal>

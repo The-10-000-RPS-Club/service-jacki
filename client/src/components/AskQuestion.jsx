@@ -11,18 +11,18 @@ function AskQuestion({ asking, setAsking }) {
 			<div>
 				<Wrapper>
 					<Title>Ask a Question</Title>
-			Question* Maximum of 255 emojis, no cats
+			<SubTitle><b>Question*</b> Maximum of 255 emojis, no cats</SubTitle>
 			<form>
-				<Text>
-						<textarea></textarea>
-					</Text>
+				<TextBox>
+						<textarea placeholder='Ask a question...'></textarea>
+					</TextBox>
 						<Form>
-							<div>
-								Nickname*
+						<div>
+							<Nickname><b>Nickname*</b></Nickname>
 			<input type='text' placeholder='Ex: blahMan'></input>
 							</div>
 							<div>
-								Loction
+							<Location><b>Loction</b></Location>
 			<input type='text' placeholder='Ex: Washington-on-the-Brazos, TX'></input>
 							</div>
 							<div>
@@ -38,12 +38,26 @@ function AskQuestion({ asking, setAsking }) {
 	}
 }
 
-const Text = styled.div`
-
+const Location = styled.div`
+padding-top: 7px;
+font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 `;
 
-const FormBody = styled.div`
+const SubTitle = styled.div`
+margin-bottom: 15px;
+margin-left: 17px;
+`;
 
+const TextBox = styled.div`
+padding-bottom: 10px;
+margin-left: 15px;
+resize: none;
+width: 50%;
+`;
+
+const Nickname = styled.div`
+	padding-top: 7px;
+	font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 `;
 
 const Form = styled.div`
@@ -51,22 +65,28 @@ display: grid;
 grid-template-columns: repeat(2, 200px);
 grid-template-rows: repeat(1, 100px);
 grid-gap: 10px;
+border-bottom: 1px solid grey;
+border-top: 1px solid grey;
 `;
 
 const Title = styled.div`
 font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 font-size: 23px;
 margin-left: 10px;
-margin-bottom: 50px;
-font-weight: 400;
+margin-bottom: 15px;
+padding-bottom: 40px;
+font-weight: 350;
+border-bottom: 1px solid grey;
 `;
 
 const Wrapper = styled.div`
 margin: auto;
+position: relative;
 width: 52%;
 position: relative;
 padding: 10px;
 font-family: Stuart, Georgia, serif;
+
 	`;
 
 const PostButton = styled.div`
