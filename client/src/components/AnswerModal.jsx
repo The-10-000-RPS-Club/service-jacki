@@ -1,36 +1,51 @@
 import React from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 import Helpful from './Helpful.jsx';
 
-function AnswerModal({ show, setShow, question, incrementHelpfulCount }) {
+function AnswerModal({
+  show, setShow, question, incrementHelpfulCount,
+}) {
   if (!show) {
     return null;
   }
   return (
-		<div>
-			<Modal>
-				<CloseModal onClick={() => setShow(false)}>x</CloseModal>
-				
-				<div>
-					<Title>Post answer</Title>
-					<div><User>{question.user} &#183; <Time>{moment(question.created_at).startOf('hour').fromNow()}</Time></User></div>
-			<div><Body>{question.question_body}</Body></div>
-			<Help><Helpful question={question} incrementHelpfulCount={incrementHelpfulCount}/></Help>
-			<InputBox>
-							Answer
-						<form>
-							<textarea />
-							
-						</form>
-						</InputBox>
-						<PostButton>Post answer</PostButton>
-				</div>
-				
-			</Modal>
-		</div>
-	);
+    <div>
+      <Modal>
+        <CloseModal onClick={() => setShow(false)}>x</CloseModal>
+        <div>
+          <Title>Post answer</Title>
+          <div>
+          <User>{question.user} &#183; <Time>{moment(question.created_at).startOf('hour').fromNow()}</Time></User></div>
+          <div><Body>{question.question_body}</Body></div>
+          <Help><Helpful question={question} incrementHelpfulCount={incrementHelpfulCount} /></Help>
+          <InputBox>
+            Answer
+            <form>
+              <AnswerBody placeholder="Answer the question..." />
+            </form>
+          </InputBox>
+          <PostButton>Post answer</PostButton>
+        </div>
+      </Modal>
+    </div>
+  );
+}
+
+AnswerModal.propTypes = {
+  show: PropTypes.bool.isRequired,
+  setShow: PropTypes.func.isRequired,
+  question: PropTypes.shape().isRequired,
+  incrementHelpfulCount: PropTypes.func.isRequired,
 };
+
+const AnswerBody = styled.textarea`
+position: static;
+width: 95%;
+height: 75px;
+resize: none;
+`;
 
 const Help = styled.div`
 margin-left: 18px;
