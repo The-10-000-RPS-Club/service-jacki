@@ -1,38 +1,53 @@
+/* eslint-disable brace-style */
+/* eslint-disable react/jsx-closing-bracket-location */
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable import/extensions */
 import React, { useState } from 'react';
-
 import moment from 'moment';
-
 import styled from 'styled-components';
-
+import PropTypes from 'prop-types';
 import Answer from './Answer.jsx';
-
 import Helpful from './Helpful.jsx';
-
 import AnswerModal from './AnswerModal.jsx';
 
-const Question = ({incrementHelpfulCount, question}) => {
-	const [show, setShow] = useState(false);
+const Question = ({ incrementHelpfulCount, question }) => {
+  const [show, setShow] = useState(false);
 
-	const showModal = () => {
-		setShow(true);
-	};
+  const showModal = () => {
+    setShow(true);
+  };
 
-	return(
-	<div>
-	<Wrapper>
-	<div>
-	<AnswerNumber>{question.answers.length}<AnswerText>answers</AnswerText></AnswerNumber>
-		<div><User>{question.user} &#183; <QuestionTime>{moment(question.created_at).startOf('hour').fromNow()}</QuestionTime></User></div>
-		<QuestionBody><p>{question.question_body}</p></QuestionBody>
-		<AnswerButton onClick={() => showModal()}>Answer the question</AnswerButton>
-	</div>
-	<Answer question={question} />
-	<Helpful question={question} incrementHelpfulCount={incrementHelpfulCount}/>
-	</Wrapper>
-		<AnswerModal show={show} setShow={setShow} question={question} incrementHelpfulCount={incrementHelpfulCount}/>
-		{show ? <PageMask /> : null}
-	</div>
-	);
+  return (
+    <div>
+      <Wrapper>
+        <div>
+          <AnswerNumber>{question.answers.length}<AnswerText>answers</AnswerText></AnswerNumber>
+          <div><User>{question.user} &#183; <QuestionTime>{moment(question.created_at).startOf('hour').fromNow()}</QuestionTime></User></div>
+          <QuestionBody><p>{question.question_body}</p></QuestionBody>
+          <AnswerButton
+            onClick={() => {
+              showModal(); }}>
+            Answer the question
+          </AnswerButton>
+        </div>
+        <Answer question={question} />
+        <Helpful
+          question={question}
+          incrementHelpfulCount={incrementHelpfulCount} />
+      </Wrapper>
+      <AnswerModal
+        show={show}
+        setShow={setShow}
+        question={question}
+        incrementHelpfulCount={incrementHelpfulCount} />
+      {show ? <PageMask /> : null}
+    </div>
+  );
+};
+
+Question.propTypes = {
+  incrementHelpfulCount: PropTypes.func.isRequired,
+  question: PropTypes.shape().isRequired,
 };
 
 const PageMask = styled.div`
@@ -45,44 +60,44 @@ const PageMask = styled.div`
 `;
 
 const Wrapper = styled.section`
-	margin: auto;
-	width: 52%;
-	border-top: 1px solid grey;
-	padding: 10px;
-	position: relative;
-	font-family: Stuart, Georgia, serif;
-	padding-bottom: 10 px;
-	margin-bottom: 10px;
+margin: auto;
+width: 52%;
+border-top: 1px solid grey;
+padding: 10px;
+position: relative;
+font-family: Stuart, Georgia, serif;
+padding-bottom: 10 px;
+margin-bottom: 10px;
 `;
 const AnswerNumber = styled.section`
-	float: right;
-	text-align: center;
-	border-radius: 2px;
-	font-size: 16px;
+float: right;
+text-align: center;
+border-radius: 2px;
+font-size: 16px;
 `;
 
 const AnswerButton = styled.button`
-	border: 1px solid grey;
-	padding: 6px;
-	background-color: white;
-	margin: 10px;
-	border-radius: 2px;
-	margin-bottom: 40px;
-	margin-left: 0px
-	cursor: pointer;
+border: 1px solid grey;
+padding: 6px;
+background-color: white;
+margin: 10px;
+border-radius: 2px;
+margin-bottom: 40px;
+margin-left: 0px
+cursor: pointer;
 `;
 
 const QuestionTime = styled.button`
 font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
-	border: none;
-	background-color: white;
+border: none;
+background-color: white;
 `;
 
 const User = styled.div`
-	font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
-	font-size: 15px;
-	font-weight: 700;
-	margin-left: 6px;
+font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
+font-size: 15px;
+font-weight: 700;
+margin-left: 6px;
 `;
 
 const QuestionBody = styled.div`
@@ -96,6 +111,5 @@ const AnswerText = styled.div`
 font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 font-size 14px;
 `;
-
 
 export default Question;
