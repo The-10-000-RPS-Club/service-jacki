@@ -1,10 +1,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
-
 import moment from 'moment';
-
 import styled from 'styled-components';
-
 import PropTypes from 'prop-types';
 
 const Answer = ({ question }) => (

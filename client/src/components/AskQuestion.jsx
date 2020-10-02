@@ -1,42 +1,51 @@
-import React, { useState, useEffect } from 'react';
-
+import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-function AskQuestion({ asking, setAsking }) {
-
-	if (asking === false) {
-		return null;
-	} else {
-		return (
-			<div>
-				<Wrapper>
-					<TitleContainer>
-					<Title>Ask a Question</Title>
-					</TitleContainer>
-					<TextboxContainer>
-			<SubTitle><b>Question*</b> Maximum of 255 emojis, no cats</SubTitle>
-				<TextBox placeholder='Ask a question...'></TextBox>
-					</TextboxContainer>
-					<FormContainer>
-						<NicknameContainer><div>
-							<Nickname><b>Nickname*</b></Nickname>
-			<NicknameInput placeholder='Ex: blahMan'></NicknameInput>
-							</div></NicknameContainer>
-							<LocationContainer><div>
-							<Location><b>Loction</b></Location>
-			<LocationInput placeholder='Ex: Washington-on-the-Brazos, TX'></LocationInput>
-							</div></LocationContainer>
-							<EmailContainer><div>
-								<Email><b>Email*</b></Email>
-			<EmailInput placeholder='Ex: blahMan@whatever.com'></EmailInput>
-							</div></EmailContainer>
-							</FormContainer>
-					<PostButton>Post question</PostButton>
-				</Wrapper>
-			</div>
-		);
-	}
+function AskQuestion({ asking }) {
+  if (asking === false) {
+    return null;
+  }
+  return (
+    <div>
+      <Wrapper>
+        <TitleContainer>
+          <Title>Ask a Question</Title>
+        </TitleContainer>
+        <TextboxContainer>
+          <SubTitle>
+            <b>Question*</b>
+            Maximum of 255 emojis, no cats
+          </SubTitle>
+          <TextBox placeholder="Ask a question..." />
+        </TextboxContainer>
+        <FormContainer>
+          <NicknameContainer>
+            <div>
+              <Nickname><b>Nickname*</b></Nickname>
+              <NicknameInput placeholder="Ex: blahMan" />
+            </div>
+          </NicknameContainer>
+          <LocationContainer>
+            <Location><b>Loction</b></Location>
+            <LocationInput placeholder="Ex: Washington-on-the-Brazos, TX" />
+          </LocationContainer>
+          <EmailContainer>
+            <div>
+              <Email><b>Email*</b></Email>
+              <EmailInput placeholder="Ex: blahMan@whatever.com" />
+            </div>
+          </EmailContainer>
+        </FormContainer>
+        <PostButton>Post question</PostButton>
+      </Wrapper>
+    </div>
+  );
 }
+
+AskQuestion.propTypes = {
+  asking: PropTypes.bool.isRequired,
+};
 
 const FormContainer = styled.div`
 border-bottom: 1px solid grey;
@@ -122,8 +131,8 @@ flex-direction: column;
 `;
 
 const Nickname = styled.div`
-	padding-top: 7px;
-	font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
+padding-top: 7px;
+font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 `;
 
 const Title = styled.div`

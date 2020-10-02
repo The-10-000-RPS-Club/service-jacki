@@ -3,17 +3,11 @@
 /* eslint-disable no-console */
 /* eslint-disable import/extensions */
 import React, { useState, useEffect } from 'react';
-
 import axios from 'axios';
-
 import styled from 'styled-components';
-
 import QuestionList from './QuestionList.jsx';
-
 import DropDown from './DropDown.jsx';
-
 import LoadMore from './LoadMore.jsx';
-
 import AskQuestion from './AskQuestion.jsx';
 
 function App() {
