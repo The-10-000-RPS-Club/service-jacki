@@ -39,7 +39,10 @@ function App() {
     <div>
       <div>
         <Wrapper>
-            <QuestionButton onClick={() => setAsking(true)}>Ask a question</QuestionButton>
+            <QuestionButton onClick={() => {
+							setAsking(true);
+							window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+							}}>Ask a question</QuestionButton>
           <div>
             <Title>
 							<div>Questions & Answers</div>
