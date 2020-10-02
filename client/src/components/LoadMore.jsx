@@ -1,23 +1,33 @@
+/* eslint-disable react/jsx-closing-bracket-location */
+/* eslint-disable brace-style */
 import React, { useState, useEffect } from 'react';
-
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-function LoadMore({ setNumQuestions, numQuestions, getMoreQuestions, sort }) {
+function LoadMore({
+  setNumQuestions, numQuestions, getMoreQuestions, sort,
+}) {
+  const [display, setDisplay] = useState(numQuestions);
 
-	const [display, setDisplay] = useState(numQuestions);
-
-	useEffect(() => {
+  useEffect(() => {
     setNumQuestions(display);
   }, [display]);
 
-	return (
-		<LoadMoreButton onClick={() => {
-			getMoreQuestions(sort);
-			setDisplay(display + 5)}}>
-		 Load More
-		</LoadMoreButton>
-	)
+  return (
+    <LoadMoreButton onClick={() => {
+      getMoreQuestions(sort);
+      setDisplay(display + 5); }}>
+      Load More
+    </LoadMoreButton>
+  );
 }
+
+LoadMore.propTypes = {
+  setNumQuestions: PropTypes.func.isRequired,
+  numQuestions: PropTypes.number.isRequired,
+  getMoreQuestions: PropTypes.func.isRequired,
+  sort: PropTypes.string.isRequired,
+};
 
 const LoadMoreButton = styled.button`
 background-color: light-grey;
@@ -31,7 +41,7 @@ margin: auto;
 margin-bottom: 150px;
 width: 20%;
 &:hover {
-	cursor: pointer;
+cursor: pointer;
 }
 `;
 
