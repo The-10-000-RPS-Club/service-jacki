@@ -21,28 +21,24 @@ function App() {
 
 	const getSortedQuestions = () => {
 		axios.get(`/api/products/questions/sort/${sort}`)
-			.then((sorted) => setQuestions(questions.concat(sorted.data)))
+			.then((sorted) => setQuestions((sorted.data)))
 			.catch((err) => (err));
 	}
 	
-	// const getQuestions = () => {
-	// 	axios.get(`/api/products/questions/sort/_id`)
-	// 	.then((data) => setQuestions(questions.concat(data.data)))
-	// 	.catch((err) => (err));
-	// };
+	const getMoreQuestions = () => {
+		axios.get(`/api/products/questions/sort/${sort}`)
+		.then((data) => setQuestions(questions.concat(data.data)))
+		.catch((err) => (err));
+	};
 	
 	const incrementHelpfulCount = (quesId, ansId, option) => {
 		axios.patch(`/api/products/questions/${quesId}/${ansId}/${option}`)
-		.then((data) => console.log(`${option} count increased`))
+		.then(() => console.log(`${option} count increased`))
 		.catch((err) => (err));
 	};
 
-	// useEffect(() => {
-  //   getQuestions();
-	// }, [numQuestions]);
-
 	useEffect(() => {
-		getSortedQuestions();
+		getSortedQuestions(sort);
 	}, [sort]);
 	
   return (
@@ -65,7 +61,7 @@ function App() {
         </div>
       </div>
       <div>
-      <LoadMore numQuestions={numQuestions} setNumQuestions={setNumQuestions} />
+      <LoadMore numQuestions={numQuestions} setNumQuestions={setNumQuestions} sort={sort} getMoreQuestions={getMoreQuestions}/>
 			</div>
 			<AskQuestion asking={asking} setAsking={setAsking}/>
 			<Footer>
