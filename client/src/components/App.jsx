@@ -17,34 +17,43 @@ function App() {
 	const [questions, setQuestions] = useState([]);
 	const [numQuestions, setNumQuestions] = useState(5);
 	const [asking, setAsking] = useState(false);
-	// const [sort, setSort] = useState(null);
+	const [sort, setSort] = useState('-select-');
+
+	const getSortedQuestions = () => {
+		axios.get(`/api/products/questions/sort/${sort}`)
+			.then((sorted) => setQuestions((sorted.data)))
+			.catch((err) => (err));
+	}
 	
-	const getQuestions = () => {
-		axios.get('/api/products/questions')
+	const getMoreQuestions = () => {
+		axios.get(`/api/products/questions/sort/${sort}`)
 		.then((data) => setQuestions(questions.concat(data.data)))
 		.catch((err) => (err));
 	};
 	
 	const incrementHelpfulCount = (quesId, ansId, option) => {
 		axios.patch(`/api/products/questions/${quesId}/${ansId}/${option}`)
-		.then((data) => console.log(`${option} count increased`))
+		.then(() => console.log(`${option} count increased`))
 		.catch((err) => (err));
 	};
 
 	useEffect(() => {
-    getQuestions();
-	}, [numQuestions]);
+		getSortedQuestions(sort);
+	}, [sort]);
 	
   return (
     <div>
       <div>
         <Wrapper>
-            <QuestionButton onClick={() => setAsking(true)}>Ask a question</QuestionButton>
+            <QuestionButton onClick={() => {
+							setAsking(true);
+							window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+							}}>Ask a question</QuestionButton>
           <div>
             <Title>
 							<div>Questions & Answers</div>
 							</Title>
-           <DropDown questions={questions} setQuestions={setQuestions} />
+           <DropDown questions={questions} setQuestions={setQuestions} sort={sort} setSort={setSort} />
           </div>
         </Wrapper>
         <div>
@@ -52,7 +61,7 @@ function App() {
         </div>
       </div>
       <div>
-      <LoadMore numQuestions={numQuestions} setNumQuestions={setNumQuestions} getQuestions={getQuestions}/>
+      <LoadMore numQuestions={numQuestions} setNumQuestions={setNumQuestions} sort={sort} getMoreQuestions={getMoreQuestions}/>
 			</div>
 			<AskQuestion asking={asking} setAsking={setAsking}/>
 			<Footer>

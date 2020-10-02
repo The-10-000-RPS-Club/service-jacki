@@ -4,27 +4,20 @@ import styled from 'styled-components';
 
 import Helpful from './Helpful.jsx';
 
-function DropDown({ questions, setQuestions }) {
+function DropDown({ questions, setQuestions, sort, setSort, }) {
 	const [dropDownContent] = useState(['Newest questions', 'Newest answers', 'Most answered', 'Answers needed', 'Most helpful answers']);
-	const [selected, setSelected] = useState('-select-');
-
-	const newestQuestions = questions.sort((a,b) => (a.created_at > b.created_at) ? 1 : ((b.created_at > a.created_at) ? -1 : 0)); 
-
-	if (selected === 'Newest questions') {
-		setQuestions(newestQuestions);
-	}
-
+	
 
 	return (
 		<div>
 		<NavbarDropdown>
-		<p>Sort by: {selected} &#x25BE;</p>
+		<p>Sort by: {sort} &#x25BE;</p>
 		<NavbarDropdownContent>
-			<SingleDropdownOption onClick={() => {setSelected('Newest questions'); console.log(selected)}}><div>{dropDownContent[0]}</div></SingleDropdownOption>
-				<SingleDropdownOption onClick={() => {setSelected('Newest answers'); console.log(selected)}}><div>{dropDownContent[1]}</div></SingleDropdownOption>
-				<SingleDropdownOption onClick={() => {setSelected('Most answered'); console.log(selected)}}><div>{dropDownContent[2]}</div></SingleDropdownOption>
-				<SingleDropdownOption onClick={() => {setSelected('Answers needed'); console.log(selected)}}><div>{dropDownContent[3]}</div></SingleDropdownOption>
-				<SingleDropdownOption onClick={() => {setSelected('Most helpful answers'); console.log(selected)}}><div>{dropDownContent[4]}</div></SingleDropdownOption>
+			<SingleDropdownOption onClick={() => {setSort('Newest questions')}}><div>{dropDownContent[0]}</div></SingleDropdownOption>
+				<SingleDropdownOption onClick={() => {setSort('Newest answers')}}><div>{dropDownContent[1]}</div></SingleDropdownOption>
+				<SingleDropdownOption onClick={() => {setSort('Most answered')}}><div>{dropDownContent[2]}</div></SingleDropdownOption>
+				<SingleDropdownOption onClick={() => {setSort('Answers needed')}}><div>{dropDownContent[3]}</div></SingleDropdownOption>
+				<SingleDropdownOption onClick={() => {setSort('Most helpful answers')}}><div>{dropDownContent[4]}</div></SingleDropdownOption>
       </NavbarDropdownContent>
 	</NavbarDropdown>
 	</div>
@@ -38,7 +31,8 @@ background-color: white;
 border: 1px solid black;
 min-width: 160px;
 box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0, 2);
-z-index: 1;
+z-index: 9;
+cursor: pointer;
 font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 `;
 
@@ -46,6 +40,9 @@ const NavbarDropdown = styled.div`
 position: relative;
 display: inline-block;
 float: right;
+padding-bottom: 5px;
+cursor: pointer;
+z-index: 9;
 &:hover ${NavbarDropdownContent} {
 	display: inline-block;
 }
@@ -55,7 +52,7 @@ font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 const SingleDropdownOption = styled.div`
 border: 10px solid white;
 &:hover {
-	background: darkslategray;
+	background: #2B455C;;
 	color: white;
 	cursor: pointer;
 	border: 10px solid darkslategrey;
