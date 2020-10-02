@@ -1,3 +1,5 @@
+/* eslint-disable import/extensions */
+/* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
@@ -17,7 +19,8 @@ function AnswerModal({
         <div>
           <Title>Post answer</Title>
           <div>
-          <User>{question.user} &#183; <Time>{moment(question.created_at).startOf('hour').fromNow()}</Time></User></div>
+            <User>{question.user} &#183; <Time>{moment(question.created_at).startOf('hour').fromNow()}</Time></User>
+          </div>
           <div><Body>{question.question_body}</Body></div>
           <Help><Helpful question={question} incrementHelpfulCount={incrementHelpfulCount} /></Help>
           <InputBox>
