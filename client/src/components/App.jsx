@@ -1,3 +1,7 @@
+/* eslint-disable max-len */
+/* eslint-disable react/jsx-closing-bracket-location */
+/* eslint-disable no-console */
+/* eslint-disable import/extensions */
 import React, { useState, useEffect } from 'react';
 
 import axios from 'axios';
@@ -13,92 +17,92 @@ import LoadMore from './LoadMore.jsx';
 import AskQuestion from './AskQuestion.jsx';
 
 function App() {
+  const [questions, setQuestions] = useState([]);
+  const [numQuestions, setNumQuestions] = useState(5);
+  const [asking, setAsking] = useState(false);
+  const [sort, setSort] = useState('-select-');
 
-	const [questions, setQuestions] = useState([]);
-	const [numQuestions, setNumQuestions] = useState(5);
-	const [asking, setAsking] = useState(false);
-	const [sort, setSort] = useState('-select-');
+  const getSortedQuestions = () => {
+    axios.get(`/api/products/questions/sort/${sort}`)
+      .then((sorted) => setQuestions((sorted.data)))
+      .catch((err) => (err));
+  };
+  const getMoreQuestions = () => {
+    axios.get(`/api/products/questions/sort/${sort}`)
+      .then((data) => setQuestions(questions.concat(data.data)))
+      .catch((err) => (err));
+  };
+  const incrementHelpfulCount = (quesId, ansId, option) => {
+    axios.patch(`/api/products/questions/${quesId}/${ansId}/${option}`)
+      .then(() => console.log(`${option} count increased`))
+      .catch((err) => (err));
+  };
 
-	const getSortedQuestions = () => {
-		axios.get(`/api/products/questions/sort/${sort}`)
-			.then((sorted) => setQuestions((sorted.data)))
-			.catch((err) => (err));
-	}
-	
-	const getMoreQuestions = () => {
-		axios.get(`/api/products/questions/sort/${sort}`)
-		.then((data) => setQuestions(questions.concat(data.data)))
-		.catch((err) => (err));
-	};
-	
-	const incrementHelpfulCount = (quesId, ansId, option) => {
-		axios.patch(`/api/products/questions/${quesId}/${ansId}/${option}`)
-		.then(() => console.log(`${option} count increased`))
-		.catch((err) => (err));
-	};
+  useEffect(() => {
+    getSortedQuestions(sort);
+  }, [sort]);
 
-	useEffect(() => {
-		getSortedQuestions(sort);
-	}, [sort]);
-	
   return (
     <div>
       <div>
         <Wrapper>
-            <QuestionButton onClick={() => {
-							setAsking(true);
-							window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-							}}>Ask a question</QuestionButton>
+          <QuestionButton onClick={() => {
+            setAsking(true);
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+          }}>
+            Ask a question
+          </QuestionButton>
           <div>
             <Title>
-							<div>Questions & Answers</div>
-							</Title>
-           <DropDown questions={questions} setQuestions={setQuestions} sort={sort} setSort={setSort} />
+              <div>Questions & Answers</div>
+            </Title>
+            <DropDown questions={questions} setQuestions={setQuestions} sort={sort} setSort={setSort} />
           </div>
         </Wrapper>
         <div>
-          <QuestionList questions={questions} incrementHelpfulCount={incrementHelpfulCount}/>
+          <QuestionList questions={questions} incrementHelpfulCount={incrementHelpfulCount} />
         </div>
       </div>
       <div>
-      <LoadMore numQuestions={numQuestions} setNumQuestions={setNumQuestions} sort={sort} getMoreQuestions={getMoreQuestions}/>
-			</div>
-			<AskQuestion asking={asking} setAsking={setAsking}/>
-			<Footer>
-			<p>How are we doing? Give us feedback on this page.</p>
-			<h2>Sign up for REI emails</h2>
-			<p>Co-op offers, events & cool new gear</p>
-				Email
-			<form>
-				<input type='text'></input><SignUpButton>Sign me up!</SignUpButton>
-			</form>
-			</Footer>
-			<BlackBox>
-				<p>Other Stuff</p>
-				<p>Other Stuff</p>
-				<p>Other Stuff</p>
-				<p>Other Stuff</p>
-				<p>Other Stuff</p>
-				<p>Other Stuff</p>
-				<p>Other Stuff</p>
-				<p>Other Stuff</p>
-				<p>Other Stuff</p>
-				<p>Other Stuff</p>
-				<p>Other Stuff</p>
-				<p>Other Stuff</p>
-				<p>Other Stuff</p>
-				<p>Other Stuff</p>
-				<p>Other Stuff</p>
-				<p>Other Stuff</p>
-				<p>Other Stuff</p>
-				<p>Other Stuff</p>
-				<p>Other Stuff</p>
-				<p>Other Stuff</p>
-				<p>Other Stuff</p>
-				<p>Other Stuff</p>
-				<p>Other Stuff</p>
-				<p>Other Stuff</p>
-			</BlackBox>
+        <LoadMore numQuestions={numQuestions} setNumQuestions={setNumQuestions} sort={sort} getMoreQuestions={getMoreQuestions} />
+      </div>
+      <AskQuestion asking={asking} setAsking={setAsking} />
+      <Footer>
+        <p>How are we doing? Give us feedback on this page.</p>
+        <h2>Sign up for REI emails</h2>
+        <p>Co-op offers, events & cool new gear</p>
+        Email
+        <form>
+          <input type="text" />
+          <SignUpButton>Sign me up!</SignUpButton>
+        </form>
+      </Footer>
+      <BlackBox>
+        <p>Other Stuff</p>
+        <p>Other Stuff</p>
+        <p>Other Stuff</p>
+        <p>Other Stuff</p>
+        <p>Other Stuff</p>
+        <p>Other Stuff</p>
+        <p>Other Stuff</p>
+        <p>Other Stuff</p>
+        <p>Other Stuff</p>
+        <p>Other Stuff</p>
+        <p>Other Stuff</p>
+        <p>Other Stuff</p>
+        <p>Other Stuff</p>
+        <p>Other Stuff</p>
+        <p>Other Stuff</p>
+        <p>Other Stuff</p>
+        <p>Other Stuff</p>
+        <p>Other Stuff</p>
+        <p>Other Stuff</p>
+        <p>Other Stuff</p>
+        <p>Other Stuff</p>
+        <p>Other Stuff</p>
+        <p>Other Stuff</p>
+        <p>Other Stuff</p>
+      </BlackBox>
     </div>
   );
 }
@@ -152,7 +156,7 @@ font-family: "Roboto","Helvetica Neue","Helvetica","Arial",sans-serif;
 font-size: 16px;
 cursor: pointer;
 &:hover {
-	background-color: #2B455C;
+background-color: #2B455C;
 }
 `;
 
