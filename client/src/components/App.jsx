@@ -17,19 +17,19 @@ function App() {
 	const [questions, setQuestions] = useState([]);
 	const [numQuestions, setNumQuestions] = useState(5);
 	const [asking, setAsking] = useState(false);
-	const [sort, setSort] = useState(null);
+	const [sort, setSort] = useState('-select-');
 
-	const getSortedQuestions = (sort) => {
+	const getSortedQuestions = () => {
 		axios.get(`/api/products/questions/sort/${sort}`)
-			.then((sorted) => setQuestions(sorted))
+			.then((sorted) => setQuestions(questions.concat(sorted.data)))
 			.catch((err) => (err));
 	}
 	
-	const getQuestions = () => {
-		axios.get('/api/products/questions')
-		.then((data) => setQuestions(questions.concat(data.data)))
-		.catch((err) => (err));
-	};
+	// const getQuestions = () => {
+	// 	axios.get(`/api/products/questions/sort/_id`)
+	// 	.then((data) => setQuestions(questions.concat(data.data)))
+	// 	.catch((err) => (err));
+	// };
 	
 	const incrementHelpfulCount = (quesId, ansId, option) => {
 		axios.patch(`/api/products/questions/${quesId}/${ansId}/${option}`)
@@ -37,13 +37,13 @@ function App() {
 		.catch((err) => (err));
 	};
 
-	useEffect(() => {
-    getQuestions();
-	}, [numQuestions]);
-
 	// useEffect(() => {
-	// 	getSortedQuestions();
-	// }, [sort]);
+  //   getQuestions();
+	// }, [numQuestions]);
+
+	useEffect(() => {
+		getSortedQuestions();
+	}, [sort]);
 	
   return (
     <div>

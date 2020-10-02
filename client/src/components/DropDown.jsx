@@ -6,18 +6,18 @@ import Helpful from './Helpful.jsx';
 
 function DropDown({ questions, setQuestions, sort, setSort, }) {
 	const [dropDownContent] = useState(['Newest questions', 'Newest answers', 'Most answered', 'Answers needed', 'Most helpful answers']);
-	const [selected, setSelected] = useState('-select-');
+	
 
 	return (
 		<div>
 		<NavbarDropdown>
-		<p>Sort by: {selected} &#x25BE;</p>
+		<p>Sort by: {sort} &#x25BE;</p>
 		<NavbarDropdownContent>
-			<SingleDropdownOption onClick={() => {setSort('Newest questions'); console.log(selected)}}><div>{dropDownContent[0]}</div></SingleDropdownOption>
-				<SingleDropdownOption onClick={() => {setSelected('Newest answers'); console.log(selected)}}><div>{dropDownContent[1]}</div></SingleDropdownOption>
-				<SingleDropdownOption onClick={() => {setSelected('Most answered'); console.log(selected)}}><div>{dropDownContent[2]}</div></SingleDropdownOption>
-				<SingleDropdownOption onClick={() => {setSelected('Answers needed'); console.log(selected)}}><div>{dropDownContent[3]}</div></SingleDropdownOption>
-				<SingleDropdownOption onClick={() => {setSelected('Most helpful answers'); console.log(selected)}}><div>{dropDownContent[4]}</div></SingleDropdownOption>
+			<SingleDropdownOption onClick={() => {setSort('Newest questions')}}><div>{dropDownContent[0]}</div></SingleDropdownOption>
+				<SingleDropdownOption onClick={() => {setSort('Newest answers')}}><div>{dropDownContent[1]}</div></SingleDropdownOption>
+				<SingleDropdownOption onClick={() => {setSort('Most answered')}}><div>{dropDownContent[2]}</div></SingleDropdownOption>
+				<SingleDropdownOption onClick={() => {setSort('Answers needed')}}><div>{dropDownContent[3]}</div></SingleDropdownOption>
+				<SingleDropdownOption onClick={() => {setSort('Most helpful answers')}}><div>{dropDownContent[4]}</div></SingleDropdownOption>
       </NavbarDropdownContent>
 	</NavbarDropdown>
 	</div>

@@ -33,6 +33,8 @@ app.get('/api/products/questions/sort/:sort', (req, res) => {
   const sorter = req.params.sort;
   if (sorter === 'Newest questions') {
     filter = 'created_at';
+  } else {
+    filter = '_id';
   }
   Questions.find({}).sort(filter).limit(5).exec()
     .then((results) => res.send(results))
