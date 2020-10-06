@@ -15,19 +15,15 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/../client/dist'));
 
-app.get('/api/products/questions', (req, res) => {
-  Questions.find({}).limit(5).exec()
-    .then((results) => res.send(results))
-    .catch((err) => res.send(err));
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3001');
 });
 
-app.get('/api/products/questions/:question_id', (req, res) => {
-  const id = req.params.question_id;
-  Questions.find({ question_id: id }).exec()
-    .then((result) => res.send(result))
-    .catch((err) => res.send(err));
-});
-
+// app.get('/api/products/questions', (req, res) => {
+//   Questions.find({}).limit(5).exec()
+//     .then((results) => res.send(results))
+//     .catch((err) => res.send(err));
+// });
 app.get('/api/products/questions/sort/:sort', (req, res) => {
   let filter;
   const sorter = req.params.sort;
@@ -38,6 +34,13 @@ app.get('/api/products/questions/sort/:sort', (req, res) => {
   }
   Questions.find({}).sort(filter).limit(5).exec()
     .then((results) => res.send(results))
+    .catch((err) => res.send(err));
+});
+
+app.get('/api/products/questions/:question_id', (req, res) => {
+  const id = req.params.question_id;
+  Questions.find({ question_id: id }).exec()
+    .then((result) => res.send(result))
     .catch((err) => res.send(err));
 });
 
