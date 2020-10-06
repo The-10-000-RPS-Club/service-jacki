@@ -13,10 +13,11 @@ const PORT = 3001;
 
 app.use(bodyParser.json());
 
-app.use(express.static(__dirname + '/../client/dist'));
+app.use(express.static(path.join(__dirname, '/../client/dist')));
 
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3001');
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+  next();
 });
 
 // app.get('/api/products/questions', (req, res) => {
@@ -24,6 +25,7 @@ app.use((req, res, next) => {
 //     .then((results) => res.send(results))
 //     .catch((err) => res.send(err));
 // });
+
 app.get('/api/products/questions/sort/:sort', (req, res) => {
   let filter;
   const sorter = req.params.sort;

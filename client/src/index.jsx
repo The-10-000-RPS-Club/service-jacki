@@ -3,6 +3,6 @@ import React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import App from './components/App.jsx';
+import QuestionsService from './components/QuestionsService.jsx';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<QuestionsService />, document.getElementById('QuestionsService'));

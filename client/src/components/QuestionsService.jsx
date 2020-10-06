@@ -10,11 +10,11 @@ import DropDown from './DropDown.jsx';
 import LoadMore from './LoadMore.jsx';
 import AskQuestion from './AskQuestion.jsx';
 
-function App() {
+function QuestionsService() {
   const [questions, setQuestions] = useState([]);
   const [numQuestions, setNumQuestions] = useState(5);
   const [asking, setAsking] = useState(false);
-  const [sort, setSort] = useState('-select-');
+  const [sort, setSort] = useState('select');
 
   const getSortedQuestions = () => {
     axios.get(`/api/products/questions/sort/${sort}`)
@@ -164,4 +164,4 @@ border-bottom: 1px solid grey;
 font-size: 14px;
 `;
 
-export default App;
+export default QuestionsService;

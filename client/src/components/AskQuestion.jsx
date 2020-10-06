@@ -82,6 +82,7 @@ position: relative;
 margin-left: 10px;
 margin-bottom: 15px;
 padding-bottom: 40px;
+font-weight: 350;
 `;
 
 const EmailInput = styled.input`
