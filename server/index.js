@@ -20,12 +20,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.get('/api/products/questions', (req, res) => {
-//   Questions.find({}).limit(5).exec()
-//     .then((results) => res.send(results))
-//     .catch((err) => res.send(err));
-// });
-
 app.get('/api/products/questions/sort/:sort', (req, res) => {
   let filter;
   const sorter = req.params.sort;
