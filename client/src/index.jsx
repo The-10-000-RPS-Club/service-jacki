@@ -5,4 +5,4 @@ import ReactDOM from 'react-dom';
 
 import QuestionsService from './components/QuestionsService.jsx';
 
-ReactDOM.render(<QuestionsService />, document.getElementById('QuestionsService'));
+ReactDOM.render(<QuestionsService />, document.getElementById('question'));
