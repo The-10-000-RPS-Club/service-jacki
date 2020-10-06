@@ -1,5 +1,5 @@
 {
-  "name": "mr_beer_clone_joe",
+  "name": "REI_questions_service",
   "version": "",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
   },
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "server-dev": "nodemon server/index.js",
+    "start": "nodemon server/index.js",
     "db-seed": "node database/seed.js",
     "test": "jest --coverage"
   },
