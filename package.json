@@ -9,10 +9,10 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "build": "webpack -d --watch",
-    "start": "nodemon server/index.js",
-    "db-seed": "node database/seed.js",
-    "test": "jest --coverage"
+    "build": "webpack -d",
+    "start": "node database/seed.js && nodemon server/index.js",
+    "test": "jest --coverage",
+    "build2": "webpack -d --watch"
   },
   "dependencies": {
     "@babel/plugin-syntax-jsx": "^7.10.4",
