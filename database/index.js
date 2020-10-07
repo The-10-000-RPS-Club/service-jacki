@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/rei_questions', { useFindAndModify: true, useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://172.17.0.2:27017/rei_questions', { useFindAndModify: true, useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
 
