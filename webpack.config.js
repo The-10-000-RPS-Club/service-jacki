@@ -48,4 +48,7 @@ module.exports = {
     minimize: false,
   },
   mode: 'production',
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
 };
