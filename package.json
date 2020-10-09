@@ -12,7 +12,7 @@
     "build": "webpack -d",
     "start": "node database/seed.js && nodemon server/index.js",
     "test": "jest --coverage",
-    "build2": "webpack -d --watch"
+    "build2": "webpack -p --watch"
   },
   "dependencies": {
     "@babel/plugin-syntax-jsx": "^7.10.4",
