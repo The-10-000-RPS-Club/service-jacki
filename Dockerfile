@@ -8,7 +8,7 @@ COPY . /src/app
 
 RUN npm install
 
-RUN npm run build
+RUN npm run build -p
 
 EXPOSE 3001
 
