@@ -2,13 +2,13 @@
 
 docker-compose up -d
 
-docker image tag proxy-belesiu_proxy:latest mbelesiu/proxy-rei
+docker image tag questions_service:latest jredmon1698/question-service
 
-docker push mbelesiu/rei-review-service:latest
+docker push jredmon1698/rei-review-service:latest
 
 docker-compose down --rmi all
 
-docker rmi mbelesiu/proxy-rei:latest
+docker rmi jredmon1698/proxy-rei:latest
 
 docker rm -f proxy-belesiu_proxy_1
 
