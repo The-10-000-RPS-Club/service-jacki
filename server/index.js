@@ -32,6 +32,7 @@ app.get('/api/products/questions/sort/:sort', (req, res) => {
     .catch((err) => res.send(err));
 });
 
+// optional, not being used
 app.get('/api/products/questions/:question_id', (req, res) => {
   const id = req.params.question_id;
   Questions.find({ question_id: id }).exec()
