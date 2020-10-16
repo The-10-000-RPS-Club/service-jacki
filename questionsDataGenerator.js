@@ -4,7 +4,7 @@ const path = require('path');
 const faker = require('faker');
 const { argv } = require('yargs');
 
-// this is the 10M product limit
+// 10M product limit, generated 40001695 questions
 const lines = argv.lines || 10000000;
 
 // create output files
@@ -59,7 +59,7 @@ function writeOneMillionTimes(writer, encoding, callback) {
 stream.write('question_id, created_at, user_name, question_body, product_id\n', 'utf-8');
 
 writeOneMillionTimes(stream, 'utf-8', () => {
-  console.log(`successfully logged ${lines} records for questions.csv`);
+  console.log('successfully logged records for questions.csv');
   stream.end();
 });
 

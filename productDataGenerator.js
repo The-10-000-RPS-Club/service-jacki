@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { argv } = require('yargs');
 
+// final count 10M records created
 const lines = argv.lines || 10000000;
 
 // create output files

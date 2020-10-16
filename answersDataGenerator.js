@@ -4,7 +4,8 @@ const path = require('path');
 const faker = require('faker');
 const { argv } = require('yargs');
 
-const lines = argv.lines || 48; // this will be num of questions generated
+// 40001695 questions;
+const lines = argv.lines || 40001695;
 
 // create output files
 const fileAnswers = path.resolve(__dirname, 'answers_data.csv');
@@ -60,6 +61,6 @@ function writeOneMillionTimes(writer, encoding, callback) {
 stream.write('answer_id, created_at, user_name, answer_body, helpful_yes, helpful_no, question_id\n', 'utf-8');
 
 writeOneMillionTimes(stream, 'utf-8', () => {
-  console.log(`successfully logged ${lines} records for answers.csv`);
+  console.log('successfully logged records for answers.csv');
   stream.end();
 });
