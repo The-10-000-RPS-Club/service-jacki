@@ -2,7 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const { argv } = require('yargs');
 
-// final count 10M records created
+// final count 10M records created in products_data.csv
+// copied 10M records to seed Postgres products table
 const lines = argv.lines || 10000000;
 
 // create output files

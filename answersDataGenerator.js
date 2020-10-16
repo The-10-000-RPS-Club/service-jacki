@@ -5,6 +5,7 @@ const faker = require('faker');
 const { argv } = require('yargs');
 
 // 40001695 questions;
+// 120011418 answers generated to answers_data.csv
 const lines = argv.lines || 40001695;
 
 // create output files

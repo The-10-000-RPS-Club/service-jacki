@@ -4,7 +4,9 @@ const path = require('path');
 const faker = require('faker');
 const { argv } = require('yargs');
 
-// 10M product limit, generated 40001695 questions
+// 10M product limit
+// generated 40001695 questions in questions_data.csv
+// copied 40001694 seed Postgres questions table
 const lines = argv.lines || 10000000;
 
 // create output files
