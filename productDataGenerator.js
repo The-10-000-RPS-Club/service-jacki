@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { argv } = require('yargs');
 
-const lines = argv.lines || 10;
+const lines = argv.lines || 10000000;
 
 // create output files
 const fileProducts = path.resolve(__dirname, 'products_data.csv');
@@ -37,5 +37,6 @@ function writeOneMillionTimes(writer, encoding, callback) {
 stream.write('product_id\n', 'utf-8');
 
 writeOneMillionTimes(stream, 'utf-8', () => {
+  console.log('successfully completed products.csv');
   stream.end();
 });

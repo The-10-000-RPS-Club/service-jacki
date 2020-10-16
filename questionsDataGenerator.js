@@ -4,7 +4,8 @@ const path = require('path');
 const faker = require('faker');
 const { argv } = require('yargs');
 
-const lines = argv.lines || 1; // this will be 10M product limit
+// this is the 10M product limit
+const lines = argv.lines || 10000000;
 
 // create output files
 const fileQuestions = path.resolve(__dirname, 'questions_data.csv');
