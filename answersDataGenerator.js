@@ -6,6 +6,7 @@ const { argv } = require('yargs');
 
 // 40001695 questions;
 // 120011418 answers generated to answers_data.csv
+// 120011417 answers copied to postgres answers table
 const lines = argv.lines || 40001695;
 
 // create output files
