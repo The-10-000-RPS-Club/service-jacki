@@ -17,10 +17,10 @@ const fakeRecord = (recordCount, parent_question_id, productCount) => {
   const primary_id = recordCount;
   const parent_id = parent_question_id;
   const product_id = productCount;
-  const created_at = String(faker.date.past(1)).slice(0, 24);
-  const last_modified_at = String(faker.date.past(1)).slice(0, 24);
-  const author_username = faker.internet.userName().replace(',', '');
-  const text_value = faker.lorem.sentence().replace(',', '');
+  const created_at = `${String(faker.date.past(5).toISOString().slice(0, 18))}+0000`;
+  const last_modified_at = `${String(faker.date.past(5).toISOString().slice(0, 18))}+0000`;
+  const author_username = String(faker.internet.userName().replace(',', ''));
+  const text_value = String(faker.lorem.sentence().replace(',', ''));
   const helpful_yes = Math.floor(Math.random() * 5);
   const helpful_no = Math.floor(Math.random() * 5);
   const is_deleted = false;
@@ -44,7 +44,7 @@ function writeOneMillionTimes(writer, encoding, callback) {
       for (let i = 0; i < numberOfQuestions; i += 1) {
         questionCount += 1;
         recordCount += 1;
-        record = fakeRecord(recordCount, 'null', productCount);
+        record = fakeRecord(recordCount, 0, productCount);
 
         if (recordCount === max) {
           writer.write(`${record}\n`, encoding, callback);
