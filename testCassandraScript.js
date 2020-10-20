@@ -21,12 +21,12 @@ function writeOneMillionTimes(writer, encoding, callback) {
     do {
       count += 1;
       if (count === max) {
-        writer.write(`MVP, ${count}, ${faker.name.firstName().replace(',', '')} \n`, encoding, callback);
+        writer.write(`MVP, ${count}, ${faker.name.firstName().replace(',', '')}\n`, encoding, callback);
       } else {
-        if (count % 100000 === 0) {
+        if (count % 10 === 0) {
           console.log(`${Math.round(((count / lines)) * 100)}% of cassandra_test.csv completed`);
         }
-        ok = writer.write(`MVP, ${count}, ${faker.firstName().replace(',', '')} \n`, encoding, callback);
+        ok = writer.write(`MVP, ${count}, ${faker.name.firstName().replace(',', '')}\n`, encoding, callback);
       }
     } while (count < max && ok);
     if (count < max) {
