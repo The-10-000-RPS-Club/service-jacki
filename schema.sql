@@ -24,22 +24,28 @@ CREATE TABLE answers (
 
 -- CASSANDRA SCHEMA
 
-CREATE TABLE tester.all (
+CREATE TABLE QnA_records (
   primary_id INT,
   parent_id INT,
   product_id INT,
-  created_at TIMESTAMP,
-  last_modified_at TIMESTAMP,
-  author_username VARCHAR,
-  text_value VARCHAR,
+  created_at TEXT,
+  last_modified_at TEXT,
+  author_username TEXT,
+  text_value TEXT,
   helpful_yes INT,
   helpful_no INT,
   is_deleted BOOLEAN,
   PRIMARY KEY (primary_id)
 )
 
-CREATE INDEX all.products
-  ON QnA.all (product_id);
+CREATE INDEX QnA_products_idx
+  ON QnA_records (product_id);
 
-CREATE INDEX all.parent
-  ON QnA.all (parent_id);
+CREATE INDEX QnA_parent_idx
+  ON QnA_records (parent_id);
+
+COPY QnA_records
+FROM '/Users/jacki/Desktop/cassandra_data2.csv'
+WITH HEADER = TRUE;
+
+SELECT * FROM QnA_records;
