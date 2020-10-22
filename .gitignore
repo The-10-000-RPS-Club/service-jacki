@@ -9,6 +9,14 @@ lerna-debug.log*
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
+# csv
+products_data.csv
+questions_data.csv
+answers_data.csv
+cassandra_test.csv
+cassandra_data.csv
+.csv
+
 # Runtime data
 pids
 *.pid
