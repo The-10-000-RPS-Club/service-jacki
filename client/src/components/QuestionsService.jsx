@@ -16,11 +16,20 @@ function QuestionsService() {
   const [asking, setAsking] = useState(false);
   const [sort, setSort] = useState('select');
 
-  const getSortedQuestions = () => {
-    axios.get(`/api/products/questions/sort/${sort}`)
-      .then((sorted) => setQuestions((sorted.data)))
+  const getSortedQuestions = (productId) => {
+    axios.get(`/api/questions/${productId}`)
+      .then((sorted) => {
+        setQuestions((sorted.data));
+      })
       .catch((err) => (err));
   };
+
+  useEffect(() => {
+    let productId = window.location.href.match(/questions\/(.+)/);
+    productId = productId ? productId[1] : 1;
+    getSortedQuestions(productId);
+  }, []);
+
   const getMoreQuestions = () => {
     axios.get(`/api/products/questions/sort/${sort}`)
       .then((data) => setQuestions(questions.concat(data.data)))
@@ -32,9 +41,9 @@ function QuestionsService() {
       .catch((err) => (err));
   };
 
-  useEffect(() => {
-    getSortedQuestions(sort);
-  }, [sort]);
+  // useEffect(() => {
+  //   getSortedQuestions(sort);
+  // }, [sort]);
 
   return (
     <div>
