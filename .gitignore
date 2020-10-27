@@ -17,6 +17,9 @@ cassandra_test.csv
 cassandra_data.csv
 .csv
 
+# cassnadra user and password
+cassandraUser.js
+
 # Runtime data
 pids
 *.pid

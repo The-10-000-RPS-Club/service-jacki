@@ -1,14 +1,13 @@
 const cassandra = require('cassandra-driver');
 // const Promise = require('bluebird');
 
-const PlainTextAuthProvider = cassandra.auth.PlainTextAuthProvider;
+const { PlainTextAuthProvider } = cassandra.auth;
 
 const client = new cassandra.Client({
   contactPoints: ['127.0.0.1:9042'],
   localDataCenter: 'datacenter1',
   keyspace: 'main',
-  authProvider: new PlainTextAuthProvider('cassandra', 'cassandra'),
-  //promiseFactory: Promise.callback,
+  authProvider: new PlainTextAuthProvider('dayglowSuperUser', 'which8eerIs$tronger11'),
 });
 
 client.connect()
