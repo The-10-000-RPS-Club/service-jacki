@@ -27,6 +27,7 @@
     "babel-preset-react": "^6.24.1",
     "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
+    "brotli-webpack-plugin": "^1.1.0",
     "cassandra-driver": "^4.6.0",
     "compression": "^1.7.4",
     "express": "^4.17.1",
@@ -45,13 +46,13 @@
     "yargs": "^16.0.3"
   },
   "devDependencies": {
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.5",
-    "jest-puppeteer": "^4.4.0",
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
+    "compression-webpack-plugin": "^6.0.4",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "^7.9.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
@@ -60,6 +61,7 @@
     "eslint-plugin-react": "^7.21.1",
     "eslint-plugin-react-hooks": "^4.1.2",
     "jest": "^26.4.2",
+    "jest-puppeteer": "^4.4.0",
     "webpack": "^4.44.2"
   }
 }

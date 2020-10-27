@@ -1,5 +1,4 @@
 const cassandra = require('cassandra-driver');
-// const Promise = require('bluebird');
 
 const { PlainTextAuthProvider } = cassandra.auth;
 
@@ -20,29 +19,3 @@ client.connect()
   });
 
 module.exports = client;
-
-// connect Cassandra db to server
-
-// connect
-// export
-
-// const cassandra = require('cassandra-driver');
-// const distance = cassandra.types.distance;
-
-// const options = {
-//   contactPoints,
-//   localDataCenter,
-//   pooling: {
-//     coreConnectionsPerHost: {
-//       [distance.local]: 2,
-//       [distance.remote]: 1
-//     }
-//   }
-// };
-
-// const client = new Client(options);
-
-// const mongoose = require('mongoose');
-// mongoose.connect('mongodb://database/rei_questions', { useFindAndModify: true, useNewUrlParser: true, useUnifiedTopology: true });
-// const db = mongoose.connection;
-// module.exports = db;

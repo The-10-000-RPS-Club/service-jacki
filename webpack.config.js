@@ -1,4 +1,6 @@
 const path = require('path');
+const CompressionPlugin = require('compression-webpack-plugin');
+const BrotliPlugin = require('brotli-webpack-plugin');
 
 const SRC_DIR = path.join(__dirname, '/client/src');
 
@@ -17,33 +19,21 @@ module.exports = {
         use: 'babel-loader',
       },
       {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              modules: true,
-            },
-          },
-        ],
-        include: /\.module\.css$/,
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader',
-        ],
-        exclude: /\.module\.css$/,
-      },
-      {
         test: /\.svg$/,
         use: 'file-loader',
       },
     ],
   },
+  plugins: [
+    new CompressionPlugin(),
+    new BrotliPlugin({
+      asset: '[path].br[query]',
+      test: /\.(js|css|html|svg)$/,
+      threshold: 10240,
+      minRatio: 0.8,
+    }),
+  ],
+  devtool: '',
   optimization: {
     minimize: false,
   },

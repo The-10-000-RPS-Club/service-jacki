@@ -85,45 +85,6 @@ app.get('/api/questions/:sort', (req, res) => {
     });
 });
 
-// app.post('/api/products/questions/:product_id', (req, res) => {
-//   const newQuestion = new Questions({
-//     product_id: req.params.id,
-//     user: req.body.user,
-//     question_body: req.body.question_body,
-//   });
-//   newQuestion.save()
-//     .then((data) => res.send(data))
-//     .catch((err) => res.send(err));
-// });
-
-// app.patch('/api/products/questions/:question_id/:answer_id/:option', (req, res) => {
-//   const quesId = req.params.question_id;
-//   const id = req.params.answer_id;
-//   const filter = { question_id: quesId };
-//   const { option } = req.params;
-//   Questions.find(filter)
-//     .then((question) => {
-//       const subDoc = question[0].answers.id(id);
-//       const count = subDoc.helpful[option];
-//       if (option === 'yes') {
-//         subDoc.set({ helpful: { yes: count + 1 } });
-//       } else {
-//         subDoc.set({ helpful: { no: count + 1 } });
-//       }
-//       question[0].save((err, newObj) => {
-//         if (err) {
-//           console.log(err);
-//         } else {
-//           console.log('succcess', newObj);
-//         }
-//       });
-//       return question;
-//     })
-//     .then((data) => res.send(data))
-//     // save parent question not child
-//     .catch((err) => res.send(err));
-// });
-
 app.listen(PORT, () => {
   console.log(`listening on port: ${PORT}`);
 });
