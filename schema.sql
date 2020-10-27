@@ -25,18 +25,18 @@ CREATE TABLE answers (
 -- CASSANDRA SCHEMA
 
 CREATE TABLE QnA_records (
-  primary_id INT,
+  primary_id COUNTER,
   parent_id INT,
   product_id INT,
   created_at TEXT,
   last_modified_at TEXT,
   author_username TEXT,
   text_value TEXT,
-  helpful_yes INT,
-  helpful_no INT,
+  helpful_yes COUNTER,
+  helpful_no COUNTER,
   is_deleted BOOLEAN,
   PRIMARY KEY (primary_id)
-)
+) --edit Primary key, add COMPOSITE KEY(PARTITION KEYS), CLUSTER KEYS)
 
 CREATE INDEX QnA_products_idx
   ON QnA_records (product_id);

@@ -4,13 +4,9 @@ const path = require('path');
 const faker = require('faker');
 const { argv } = require('yargs');
 
-// 160M
 const lines = argv.lines || 160000000;
-// const productCountMax = 10000000;
 
-// create output files
 const fileAnswers = path.resolve('/Users/jacki/Desktop/cassandra_data2.csv');
-
 const stream = fs.createWriteStream(fileAnswers);
 
 const fakeRecord = (recordCount, parent_question_id, productCount) => {
@@ -25,8 +21,7 @@ const fakeRecord = (recordCount, parent_question_id, productCount) => {
   const helpful_no = Math.floor(Math.random() * 5);
   const is_deleted = false;
 
-  // return `${primary_id}, ${parent_id}, ${product_id}, ${created_at}, ${last_modified_at}, ${author_username}, ${text_value}, ${helpful_yes}, ${helpful_no}, ${is_deleted}`;
-  return `${primary_id}, ${author_username}, ${created_at}, ${helpful_no}, ${helpful_yes}, ${is_deleted}, ${last_modified_at}, ${parent_id}, ${product_id}, ${text_value}`;
+  return `${primary_id},${author_username},${created_at},${helpful_no},${helpful_yes},${is_deleted},${last_modified_at},${parent_id},${product_id},${text_value}`;
 };
 
 // Write the data to the supplied writable stream one million times.
@@ -43,7 +38,7 @@ function writeOneMillionTimes(writer, encoding, callback) {
       if (productCount >= 10000000) {
         break;
       }
-      productCount += 1; // start with product listing id
+      productCount += 1;
 
       const numberOfQuestions = Math.floor(Math.random() * 5) + 1;
       for (let i = 0; i < numberOfQuestions; i += 1) {
@@ -82,8 +77,7 @@ function writeOneMillionTimes(writer, encoding, callback) {
 }
 
 // header
-// stream.write('primary_id, parent_id, product_id, created_at, last_modified_at, author_username, text_value, helpful_yes, helpful_no, is_deleted\n', 'utf-8');
-stream.write('primary_id, author_username, created_at, helpful_no, helpful_yes, is_deleted, last_modified_at, parent_id, product_id, text_value\n', 'utf-8');
+stream.write('primary_id,author_username,created_at,helpful_no,helpful_yes,is_deleted,last_modified_at,parent_id,product_id,text_value\n', 'utf-8');
 
 writeOneMillionTimes(stream, 'utf-8', () => {
   console.log('successfully completed cassandra_data.csv');
