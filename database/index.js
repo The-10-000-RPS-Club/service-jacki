@@ -6,7 +6,7 @@ const client = new cassandra.Client({
   contactPoints: ['127.0.0.1:9042'],
   localDataCenter: 'datacenter1',
   keyspace: 'main',
-  authProvider: new PlainTextAuthProvider('dayglowSuperUser', 'which8eerIs$tronger11'),
+  authProvider: new PlainTextAuthProvider('dayglowSuperUser', PASSWORD),
 });
 
 client.connect()
