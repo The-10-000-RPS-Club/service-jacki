@@ -112,3 +112,9 @@ typings/
 
 # TernJS port file
 .tern-port
+
+# Ignore node_modules
+**/node_modules
+
+# Ignore any zip files
+*.zip
