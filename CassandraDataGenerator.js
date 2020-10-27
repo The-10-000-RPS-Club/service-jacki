@@ -6,7 +6,7 @@ const { argv } = require('yargs');
 
 const lines = argv.lines || 160000000;
 
-const fileAnswers = path.resolve('/Users/jacki/Desktop/cassandra_data2.csv');
+const fileAnswers = path.resolve('/Users/jacki/Desktop/cassandra_data_aws.csv');
 const stream = fs.createWriteStream(fileAnswers);
 
 const fakeRecord = (recordCount, parent_question_id, productCount) => {
@@ -16,10 +16,14 @@ const fakeRecord = (recordCount, parent_question_id, productCount) => {
   const created_at = String(faker.date.past(5)).slice(0, 24);
   const last_modified_at = String(faker.date.past(5)).slice(0, 24);
   const author_username = String(faker.internet.userName().replace(',', ''));
-  const text_value = String(faker.lorem.sentence().replace(',', ''));
+  let text_value = String(faker.lorem.sentence().replace(',', ''));
   const helpful_yes = Math.floor(Math.random() * 5);
   const helpful_no = Math.floor(Math.random() * 5);
   const is_deleted = false;
+
+  if (parent_id === 0) {
+    text_value = text_value.replace('.', '?');
+  }
 
   return `${primary_id},${author_username},${created_at},${helpful_no},${helpful_yes},${is_deleted},${last_modified_at},${parent_id},${product_id},${text_value}`;
 };

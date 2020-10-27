@@ -1,6 +1,7 @@
 /* eslint-disable import/newline-after-import */
 /* eslint-disable no-console */
 const express = require('express');
+require('newrelic');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const path = require('path');
