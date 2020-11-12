@@ -1,2 +1,2 @@
 # service-jacki
-REI questions service
+Outdoor Recreation Products questions & answers service
