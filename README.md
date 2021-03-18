@@ -13,10 +13,17 @@ I love coding, spreading positivity and hearing feedback! Let's connect.
 </a>
 
 ## Back End Database Migration
-This service focuses on the "Check Availability Calendar" of a producting listing page for an open source home rental site. It operates with it's own server and database that powers the module's UI.  It is one service of a larger service oriented architecture.
+
+Redesigned legacy backend to handle scaled client requests for retail eCommerce site.
+
+1. Replaced legacy backend with a new backend powered by Cassandra database to improve benchmarked CRUD performance by 40% for production level traffic
+2. Deployed database, services, load balancer and proxy on Amazon Elastic Compute Cloud (EC2) instances
+3. Increased successful user requests by 200% after stress testing the deployed application using LoaderIO/K6
+4. Identified bottlenecks within backend architecture utilizing NewRelic to efficiently test production level traffic
+5. Increased fault tolerance and system availability for users by horizontally scaling proxy and service layers with NGINX load balancers to handle production level surges
 
 ![](./img/product.png)
-![](./img/product.png)
+
 ![](./img/questionsAnswers2.png)
 
 ## Documentation
@@ -57,7 +64,9 @@ Open a new browser tab to see the app:
   - [Relate Items Service](https://github.com/The-Emerald-Kraken/relatedItems-service)
 
 ![](./img/benchmarkingAndScaling.png)
+
 ![](./img/questionsAnswers.png)
+
 ![](./img/moreSection.png)
 
 ## Technologies
