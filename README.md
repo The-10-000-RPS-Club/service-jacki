@@ -15,13 +15,15 @@ I love coding, spreading positivity and hearing feedback! Let's connect.
 ## Back End Database Migration
 This service focuses on the "Check Availability Calendar" of a producting listing page for an open source home rental site. It operates with it's own server and database that powers the module's UI.  It is one service of a larger service oriented architecture.
 
-![](./img/availabilityCalendar.gif)
+![](./img/product.png)
+![](./img/product.png)
+![](./img/questionsAnswers2.png)
 
 ## Documentation
-1. [Project ReadMe](#Back)
-1. [Getting Started](#Getting)
-1. [Related Projects](./documentation/related-projects.md)
-1. [Design](#Whiteboarding)
+1. [Project ReadMe](#Back-End-Database-Migration)
+1. [Getting Started](#Getting-Started)
+1. [Design](#Whiteboarding-Database)
+1. [Related Projects](#Related-Projects)
 1. [Technologies](#Technologies)
 
 ## Getting Started
@@ -37,15 +39,7 @@ Navigate inside of the directory `./questions-service` and run the following com
 Open a new browser tab to see the app:
 * `http://localhost:3001`
 
-## Related Projects
-
-![](./img/benchmarkingAndScaling.png)
-
-  - [GoOutdoor Q&A Service Migration](https://github.com/The-10-000-RPS-Club/relatedItems-chris)
-  - [Reviews Service](https://github.com/The-Emerald-Kraken/review-service)
-  - [Relate Items Service](https://github.com/The-Emerald-Kraken/relatedItems-service)
-
-## Whiteboarding UI to database
+## Whiteboarding Database
 ![](./img/whiteboarding_cassandra.jpg)
 
 ### Front-End Challenges
@@ -56,6 +50,15 @@ Open a new browser tab to see the app:
 1) Choose database for service by benchmarking the CRUD speeds most utilized
 2) Deploy application with load balancer (NGINX)
 3) Resolve bottlenecks found with stress testing via Loader.io / K6
+
+## Related Projects
+  - [GoOutdoor Q&A Service Migration](https://github.com/The-10-000-RPS-Club/relatedItems-chris)
+  - [Reviews Service](https://github.com/The-Emerald-Kraken/review-service)
+  - [Relate Items Service](https://github.com/The-Emerald-Kraken/relatedItems-service)
+
+![](./img/benchmarkingAndScaling.png)
+![](./img/questionsAnswers.png)
+![](./img/moreSection.png)
 
 ## Technologies
 * React
