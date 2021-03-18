@@ -18,13 +18,10 @@ This service focuses on the "Check Availability Calendar" of a producting listin
 ![](./img/availabilityCalendar.gif)
 
 ## Documentation
-1. [Project ReadMe](./README.md)
-1. [Getting Started](./documentation/getting-started.md)
+1. [Project ReadMe](#Back)
+1. [Getting Started](#Getting)
 1. [Related Projects](./documentation/related-projects.md)
-1. [Design](./documentation/system-design.md)
-1. [Usage](./documentation/getting-started.md)
-1. [Requirements](./documentation/requirements.md)
-1. [Development](./documentation/dependencies.md)
+1. [Design](#Whiteboarding)
 1. [Technologies](#Technologies)
 
 ## Getting Started
@@ -48,6 +45,9 @@ Open a new browser tab to see the app:
   - [Reviews Service](https://github.com/The-Emerald-Kraken/review-service)
   - [Relate Items Service](https://github.com/The-Emerald-Kraken/relatedItems-service)
 
+## Whiteboarding UI to database
+![](./img/whiteboarding_cassandra.jpg)
+
 ### Front-End Challenges
 1) Protect user experience in UI while migrating backend database.
 2) Reduce structural changes via server retrieval and front end data.
@@ -57,68 +57,11 @@ Open a new browser tab to see the app:
 2) Deploy application with load balancer (NGINX)
 3) Resolve bottlenecks found with stress testing via Loader.io / K6
 
-## Planning via mock ups
-![](./img/front.png)
-![](./img/calendar.png)
-![](./img/guests.png)
-![](./img/estimate.png)
-
-## Whiteboarding UI to database
-![](./img/whiteboarding_cassandra.jpg)
-
-## MongoDB shape of data
-Document schema sample:
-```
-listingSchema = {
-    “listing_id”: 1,
-    “price”: 100,
-    “rating”: 4.5,
-    “reviews_count”: 86,
-     “guests_limit”: 8,
-     “guests_included”: 2,
-     “guest_extra_charge”: 10,
-     “cleaning_fee”: 100,
-     “service_fee”: 71,
-     “taxes”: 51,
-	“bedrooms”: 4,
-	“beds”: 4,
-	“bath”: 2,
-	“listing_type”: Entire house,
-	“host”: random name,
-     “availability”: [monthSchema],
-}
-```
-
-Subdocument child schema sample:
-```
-monthSchema = {
-   name: String (i.e. October),
-   days : [ 1, 1, 1, … 0 ]
-}
-```
-
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-Find MongoDB installation documentation here [MongoDB](https://docs.mongodb.com/manual/installation/).
-
-- Node >= 6.13.0
-- MongoDB 4.4.0
-
-### Installing Dependencies
-
-From within the root directory:
-```sh
-npm install -g webpack
-npm install
-```
-
 ## Technologies
 * React
 * Node.js
 * Express
-* MongoDB
-* Mongoose
+* Cassandra
 * Wepack
 * Docker
 * AWS EC2 (currently not live)
