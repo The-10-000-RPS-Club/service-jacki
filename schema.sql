@@ -48,4 +48,8 @@ COPY QnA_records
 FROM '/Users/jacki/Desktop/cassandra_data2.csv'
 WITH HEADER = TRUE;
 
+COPY main.QnA_records (primary_id,author_username,created_at,helpful_no,helpful_yes,is_deleted,last_modified_at,parent_id,product_id,text_value)
+FROM '/home/ubuntu/service-jacki/cassandra_data_aws.csv'
+WITH HEADER = TRUE;
+
 SELECT * FROM main.QnA_records;
