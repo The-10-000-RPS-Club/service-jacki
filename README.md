@@ -42,27 +42,20 @@ Open a new browser tab to see the app:
 
 ## Related Projects
 
-![](./img/reviews2.png)
+![](./img/benchmarkingAndScaling.png)
 
   - [GoOutdoor Q&A Service Migration](https://github.com/The-10-000-RPS-Club/relatedItems-chris)
   - [Reviews Service](https://github.com/The-Emerald-Kraken/review-service)
   - [Relate Items Service](https://github.com/The-Emerald-Kraken/relatedItems-service)
 
 ### Front-End Challenges
-1) Building an interactive [calendar](./documentation/design/mockup.md) from scratch with multiple responsive changes
-2) Dependent values for price estimation
-3) Reducing UI lag
+1) Protect user experience in UI while migrating backend database.
+2) Reduce structural changes via server retrieval and front end data.
 
 ### Back-End Challenges
-1) Selecting database and designing schema
-2) Accessing data effeciently
-
-### Led Project Management & Team
-1) [Timeline](./documentation/design/timeline.md)
-2) [Mockup](./documentation/design/mockup.md)
-
-## Timeline & Deliverables Tracker
-![](./img/project-deliverables.png)
+1) Choose database for service by benchmarking the CRUD speeds most utilized
+2) Deploy application with load balancer (NGINX)
+3) Resolve bottlenecks found with stress testing via Loader.io / K6
 
 ## Planning via mock ups
 ![](./img/front.png)
