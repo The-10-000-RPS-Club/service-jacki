@@ -74,6 +74,6 @@ Open a new browser tab to see the app:
 * Node.js
 * Express
 * Cassandra
-* Wepack
+* Webpack
 * Docker
 * AWS EC2 (currently not live)
