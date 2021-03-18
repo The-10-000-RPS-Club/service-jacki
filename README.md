@@ -15,7 +15,9 @@ I love coding, spreading positivity and hearing feedback! Let's connect.
 ## Back End Database Migration
 This service focuses on the "Check Availability Calendar" of a producting listing page for an open source home rental site. It operates with it's own server and database that powers the module's UI.  It is one service of a larger service oriented architecture.
 
-![](./img/availabilityCalendar.gif)
+![](./img/product.png)
+![](./img/product.png)
+![](./img/questionsAnswers2.png)
 
 ## Documentation
 1. [Project ReadMe](#Back-End-Database-Migration)
@@ -55,6 +57,8 @@ Open a new browser tab to see the app:
   - [Relate Items Service](https://github.com/The-Emerald-Kraken/relatedItems-service)
 
 ![](./img/benchmarkingAndScaling.png)
+![](./img/questionsAnswers.png)
+![](./img/moreSection.png)
 
 ## Technologies
 * React
