@@ -64,7 +64,7 @@ Open a new browser tab to see the app:
 ![](./img/estimate.png)
 
 ## Whiteboarding UI to database
-![](./img/calendar_whiteboarding.jpg)
+![](./img/whiteboarding_cassandra.jpg)
 
 ## MongoDB shape of data
 Document schema sample:
